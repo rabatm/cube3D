@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+         #
+#    By: orauline <orauline@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:51:43 by mrabat            #+#    #+#              #
-#    Updated: 2024/01/24 13:10:19 by mrabat           ###   ########.fr        #
+#    Updated: 2024/01/24 16:09:58 by orauline         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
 
-NAME = cube3d
+NAME = cub3d
 MINILIBX = minilibx
 
 # Dossiers
@@ -31,7 +31,7 @@ LIBMINIDIR_ORIGIN = lib/minilibx
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra
 
-MACFLY =  -lXext -lX11 -lm -lbsd 
+MACFLY =  -lXext -lX11 -lm -lbsd
 # Noms des fichiers
 LIBFT = $(LIBFTDIR)/libft.a
 LIBMINI = lib/minilibx/libmlx.a
@@ -83,4 +83,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

@@ -25,25 +25,15 @@ LIBFT = $(LIBFTDIR)/libft.a
 LIBMINI = $(LIBMINIDIR_ORIGIN)/libmlx.a lib/minilibx/libmlx_Linux.a
 
 
-# Fichiers sources et objets
-SRC = $(wildcard $(SRCDIR)/*.c $(SRCDIR)/utils/*.c $(SRCDIR)/map/*.c $(SRCDIR)/parsing/*.c)
-OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(notdir $(SRC)))
+# Recherche des fichiers source .c dans les sous-répertoires
+SRCS := $(shell find $(SRCDIR) -type f -name '*.c')
 
-# Règle de compilation des fichiers objets
+# Génération des noms de fichiers objets à partir des noms de fichiers sources
+OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+
+# Compilation générique des fichiers objets
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJDIR)/%.o: $(SRCDIR)/utils/%.c
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJDIR)/%.o: $(SRCDIR)/map/%.c
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJDIR)/%.o: $(SRCDIR)/parsing/%.c
-	$(shell mkdir -p $(OBJDIR))
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle par défaut

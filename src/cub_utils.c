@@ -65,7 +65,6 @@ void	display_struct_values(t_game *game)
 	ft_printf("\n   Map:	\n");
 	while (game->tab[++i])
 		ft_printf("%s\n", game->tab[i]);
-
 	i = -1;
 	ft_printf("\n   Map after became rectangular:	\n");
 	while (game->matrix[++i])

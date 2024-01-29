@@ -32,7 +32,6 @@ typedef struct s_game
 	t_point	player;
 
 	/*Variables dont on pourrait avoir besoin dans le projet*/
-
 	// void    *mlx;
 	// void    *win;
 	// int     width;
@@ -50,7 +49,6 @@ typedef struct s_game
 	// int     walk_speed;
 	// int     turn_speed;
 }		t_game;
-
 
 /*Structure dont on pourrait avoir besoin dans le projet*/
 // typedef struct s_ray
@@ -76,7 +74,6 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
 void	read_file(char *file_path, t_game *game);
@@ -92,13 +89,11 @@ void	get_map_from_config(t_game *game);
 
 /*Fonctions de gestion du raycasting*/
 
-
 /*Fonctions de gestion de la mémoire*/
-// void    malloc_n_duplicate(t_game *game);
+// void	malloc_n_duplicate(t_game *game);
 void	free_errors(t_game *game);
 void	free_errors2(t_game *game, char *str);
 void	free_all(t_game *game);
-
 
 /*Fonctions de gestion des erreurs*/
 void	ft_error(char *str);

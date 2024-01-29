@@ -3,6 +3,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	game;
+
 	game.flag = 0;
 	if (argc == 2)
 	{

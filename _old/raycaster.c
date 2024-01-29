@@ -1,4 +1,4 @@
 /**
 	fichier pour la gestion des effets de ray-casting
 */
-#include "include/cube3d.h"
+#include "../includes/cube3d.h"

@@ -5,7 +5,7 @@
 	à être parsés pour générer le jeux.
 */
 
-#include "include/cube3d.h"
+#include "../includes/cube3d.h"
 
 //fonction aui traite la resolution 
 void parse_resolution(char *line, t_game *game)
@@ -34,7 +34,7 @@ void parse_texture(char *line, t_game *game)
 	}
 	else
 	{
-		printf("Error\nInvalid line in file\n");
+		ft_printf("Error\nInvalid line in file\n");
 		exit(0);
 	}
 }
@@ -51,7 +51,7 @@ void parse_color(char *line, t_game *game)
 	}
 	else
 	{
-		printf("Error\nInvalid line in file\n");
+		ft_printf("Error\nInvalid line in file\n");
 		exit(0);
 	}
 }
@@ -89,7 +89,7 @@ void parse_line(char *line, t_game *game)
 		parse_map(line, game);
 	else
 	{
-		printf("Error\nInvalid line in file\n");
+		ft_printf("Error\nInvalid line in file\n");
 		exit(0);
 	}
 }
@@ -103,7 +103,7 @@ void parse_file(char *file, t_game *game)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error\nFile %s not found\n", file);
+		ft_printf("Error\nFile %s not found\n", file);
 		exit(0);
 	}
 	while (get_next_line(fd, &line))

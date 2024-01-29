@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: orauline <orauline@student.42perpignan.    +#+  +:+       +#+         #
+#    By: orauline <orauline@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:51:43 by mrabat            #+#    #+#              #
-#    Updated: 2024/01/24 16:09:58 by orauline         ###   ########.fr        #
+#    Updated: 2024/01/25 15:51:56 by orauline         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ CFLAGS = -g -Wall -Werror -Wextra
 MACFLY =  -lXext -lX11 -lm -lbsd
 # Noms des fichiers
 LIBFT = $(LIBFTDIR)/libft.a
-LIBMINI = lib/minilibx/libmlx.a
+LIBMINI = $(LIBMINIDIR_ORIGIN)/libmlx.a lib/minilibx/libmlx_Linux.a
 
 
 

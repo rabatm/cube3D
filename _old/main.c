@@ -1,5 +1,6 @@
 
-#include "include/cube3d.h"
+#include "../includes/cube3d.h"
+
 /**
 fichier main du projet cub3d
 ce fichier contient la fonction main
@@ -9,10 +10,17 @@ qui est la fonction principale du programme
 int main(int argc, char **argv)
 {
 	t_game game;
-	//on initialise la structure game
-	init_game(&game);
-	//on parse le fichier .cub
-	parse_file(argv[1], &game);
+
+	if (argc == 2)
+	{
+		//on parse le fichier .cub
+		parse_file(argv[1], &game);
+		//on check si toutes les config de la map sont OK
+		//check_map(&game);
+	}
+	else
+		ft_error("You must have 2 arguments to run the program.");
+	//init_game(&game);
 	/*
 	init_window(&game);
 	//on initialise les textures
@@ -22,6 +30,6 @@ int main(int argc, char **argv)
 	//on lance le jeu
 	game_loop(&game);
 	//on libere la memoire*/
-	free_memory(&game);
+	// free_memory(&game);
 	return (0);
 }

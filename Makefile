@@ -40,8 +40,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 all: $(NAME)
 
 # Règle de construction de l'exécutable
-$(NAME): $(LIBMINI) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
+$(NAME): $(LIBMINI) $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
 
 # Règle de construction de la bibliothèque libft.a
@@ -62,7 +62,6 @@ clean:
 
 # Règle de nettoyage complet
 fclean: clean
-	#$(MAKE) fclean -sC $(LIBFTDIR)
 	rm -f $(NAME)
 	@echo "$(RED)cleaned!$(DEF_COLOR)"
 

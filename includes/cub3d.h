@@ -86,31 +86,24 @@ void	get_map_rectangular(t_game *game);
 void	get_map_from_config(t_game *game);
 
 /*Fonctions de gestion des éléments graphiques*/
+// int		create_window(t_game *game);
+// int		handle_keypress(int keysym, t_game *game);
+// int		close_everything(t_game *game);
 
 /*Fonctions de gestion du raycasting*/
 
+
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);
+void	free_errors(t_game *game);
+void	free_errors2(t_game *game, char *str);
 void	free_all(t_game *game);
+
 
 /*Fonctions de gestion des erreurs*/
 void	ft_error(char *str);
 void	display_struct_values(t_game *game);
-void	free_errors(t_game *game);
-void	free_errors2(t_game *game, char *str);
 void	check_map(t_game *game);
 int		check_walls(t_game *game);
-
-// void	free_all(t_game *game);
-// void	check_map(t_game *game);
-// void	display_struct_values(t_game *game);
-// void	ft_error(char *str);
-// int		check_collectibles(t_game *game);
-// void	check_paths(t_game *game);
-// int		close_everything(t_game *game);
-// int		create_window(t_game *game);
-// int		handle_keypress(int keysym, t_game *game);
-// void	free_errors(t_game *game);
-// void	free_errors2(t_game *game, char *str);
 
 #endif

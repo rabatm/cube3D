@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 	/*fonction de debug*/
 	display_struct_values(&game);
 	// create_window(&game);
+	/*fonction qui free tous éléments malloc*/
 	free_all(&game);
 	return (0);
 }

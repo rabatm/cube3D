@@ -21,6 +21,17 @@ typedef struct s_point
 	int	y;
 }				t_point;
 
+typedef struct s_ctext
+{
+	char		*texture_north;
+	char		*texture_south;
+	char		*texture_east;
+	char		*texture_west;
+	t_color		color_floor;
+	t_color		color_ceiling;
+} t_ctext;
+
+
 typedef struct s_game
 {
 	int		flag;
@@ -31,12 +42,7 @@ typedef struct s_game
 	char	**matrix;
 	int			resolution_x;
 	int			resolution_y;
-	char		*texture_north;
-	char		*texture_south;
-	char		*texture_east;
-	char		*texture_west;
-	t_color		color_floor;
-	t_color		color_ceiling;
+	t_ctext	color_texture;
 	t_point	player;
 
 	/*Variables dont on pourrait avoir besoin dans le projet*/

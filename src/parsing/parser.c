@@ -8,23 +8,23 @@
 #include "../../includes/cub3d.h"
 
 //fonction aui traite les texture ex NO SO WE EA
-void parse_texture(char *line, t_game *game)
+void parse_texture(char *line, t_ctext *color_texture)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 	{
-		game->texture_north = ft_strdup(line + 3);
+		color_texture->texture_north = ft_strdup(line + 3);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
-		game->texture_south = ft_strdup(line + 3);
+		color_texture->texture_south = ft_strdup(line + 3);
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
 	{
-		game->texture_west = ft_strdup(line + 3);
+		color_texture->texture_west = ft_strdup(line + 3);
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
-		game->texture_east = ft_strdup(line + 3);
+		color_texture->texture_east = ft_strdup(line + 3);
 	}
 	else
 	{
@@ -46,12 +46,12 @@ t_color parse_rgb_values(char *line)
 	return color;
 }
 
-void parse_color(char *line, t_game *game)
+void parse_color(char *line, t_ctext *color_texture)
 {
 	if (line[0] == 'F')
-		game->color_floor = parse_rgb_values(line + 2);
+		color_texture->color_floor = parse_rgb_values(line + 2);
 	else if (line[0] == 'C')
-		game->color_ceiling = parse_rgb_values(line + 2);
+		color_texture->color_ceiling = parse_rgb_values(line + 2);
 	else
 	{
 		ft_printf("Error\nInvalid line in file\n");
@@ -61,20 +61,20 @@ void parse_color(char *line, t_game *game)
 
 //fonction qui traite les lignes du fichier
 // et les envoies aux fonctions de traitement
-void parse_line(char *line, t_game *game)
+void parse_line(char *line, t_ctext *color_texture)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		parse_texture(line, game);
+		parse_texture(line, color_texture);
 	else if (line[0] == 'S' && line[1] == 'O')
-		parse_texture(line, game);
+		parse_texture(line, color_texture);
 	else if (line[0] == 'W' && line[1] == 'E')
-		parse_texture(line, game);
+		parse_texture(line, color_texture);
 	else if (line[0] == 'E' && line[1] == 'A')
-		parse_texture(line, game);
+		parse_texture(line, color_texture);
 	else if (line[0] == 'F')
-		parse_color(line, game);
+		parse_color(line, color_texture);
 	else if (line[0] == 'C')
-		parse_color(line, game);
+		parse_color(line, color_texture);
 	else
 	{
 		ft_printf("Error\nInvalid line in file\n");
@@ -86,12 +86,13 @@ void parse_line(char *line, t_game *game)
 // pour le stocker au bon endroit dans la structure game 
 void parse_file(t_game *game)
 {
-	int i;
+	int 	i;
+	t_ctext	*color_texture;
 	
 
 	i = 0;
 	while(i < 6)
 	{
-		parse_line(game->config[i], game);
+		parse_line(game->config[i], color_texture);
 	}
 }

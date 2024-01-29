@@ -1,7 +1,7 @@
 /*
 Fichier qui contient les fonctions d'initiationsation et de supresion
 */
-#include "../../includes/cube3d.h"
+#include "../../includes/cub3d.h"
 
 void	ft_init_game(t_game *game)
 {

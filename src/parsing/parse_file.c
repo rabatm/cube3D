@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui lit le fd*/
 static char	*ft_read_fd(int fd, char *buffer, char *stash)
@@ -28,9 +28,9 @@ static char	*ft_read_fd(int fd, char *buffer, char *stash)
 }
 
 /*Fonction qui vérifie si l'extension de fichier est valide*/
-static void	check_file_extension(char *str)
+void	check_file_extension(char *str, char *ext)
 {
-	if (ft_strncmp(&str[ft_strlen(str) - 4], ".cub", 4))
+	if (ft_strncmp(&str[ft_strlen(str) - 4], ext, 4))
 		ft_error("Invalid file extension.");
 }
 
@@ -41,7 +41,7 @@ void	read_file(char *file_path, t_game *game)
 	char	*buffer;
 	char	*stash;
 
-	check_file_extension(file_path);
+	check_file_extension(file_path, ".cub");
 	fd = open(file_path, O_RDONLY);
 	if (fd < 0)
 		ft_error("Incorrect file name or file path.");

@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie qu'il y a que des 1 sur les contours de la map*/
 static int	check_outline(t_game *game)

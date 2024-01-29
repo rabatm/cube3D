@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui affiche le message d'erreur
 // et termine le programme correctement*/

@@ -5,13 +5,7 @@
 	à être parsés pour générer le jeux.
 */
 
-#include "../includes/cube3d.h"
-
-//fonction aui traite la resolution 
-void parse_resolution(char *line, t_game *game)
-{
-//code
-}
+#include "../../includes/cub3d.h"
 
 //fonction aui traite les texture ex NO SO WE EA
 void parse_texture(char *line, t_game *game)
@@ -65,19 +59,6 @@ void parse_color(char *line, t_game *game)
 	}
 }
 
-//fonction qui traite la carte du labyrinthe
-void parse_map(char *line, t_game *game)
-{
-	if(game->map == NULL)
-	{
-		game->map = ft_strdup(line);
-	}
-	else
-	{
-		game->map = ft_strjoin(game->map, line);
-	}
-}
-
 //fonction qui traite les lignes du fichier
 // et les envoies aux fonctions de traitement
 void parse_line(char *line, t_game *game)
@@ -94,8 +75,6 @@ void parse_line(char *line, t_game *game)
 		parse_color(line, game);
 	else if (line[0] == 'C')
 		parse_color(line, game);
-	else if (line[0] == ' ' || line[0] == '1')
-		parse_map(line, game);
 	else
 	{
 		ft_printf("Error\nInvalid line in file\n");
@@ -103,23 +82,16 @@ void parse_line(char *line, t_game *game)
 	}
 }
 
-//fonction qui ouvre le fichier et le lit ligne par ligne
-void parse_file(char *file, t_game *game)
+//fonction qui recupere les informations depuis config de la structure
+// pour le stocker au bon endroit dans la structure game 
+void parse_file(t_game *game)
 {
-	int	fd;
-	char	*line;
+	int i;
+	
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
+	i = 0;
+	while(i < 6)
 	{
-		ft_printf("Error\nFile %s not found\n", file);
-		exit(0);
+		parse_line(game->config[i], game);
 	}
-	while (get_next_line(fd, &line))
-	{
-		parse_line(line, game);
-		free(line);
-	}
-	free(line);
-	close(fd);
 }

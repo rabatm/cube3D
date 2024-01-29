@@ -25,10 +25,26 @@ LIBFT = $(LIBFTDIR)/libft.a
 LIBMINI = $(LIBMINIDIR_ORIGIN)/libmlx.a lib/minilibx/libmlx_Linux.a
 
 
-
 # Fichiers sources et objets
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+SRC = $(wildcard $(SRCDIR)/*.c $(SRCDIR)/utils/*.c $(SRCDIR)/map/*.c $(SRCDIR)/parsing/*.c)
+OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(notdir $(SRC)))
+
+# Règle de compilation des fichiers objets
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(shell mkdir -p $(OBJDIR))
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/utils/%.c
+	$(shell mkdir -p $(OBJDIR))
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/map/%.c
+	$(shell mkdir -p $(OBJDIR))
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/parsing/%.c
+	$(shell mkdir -p $(OBJDIR))
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle par défaut
 all: $(NAME)
@@ -37,13 +53,6 @@ all: $(NAME)
 $(NAME): $(LIBMINI) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
-
-# Règle de compilation des fichiers objets
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-# Création du dossier obj s'il n'existe pas
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(YELLOW)OBJ CREDD$(DEF_COLOR)"
 
 # Règle de construction de la bibliothèque libft.a
 $(LIBFT):

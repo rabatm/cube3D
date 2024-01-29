@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui récupère seulement la map du fichier de config
 // à partir de la 6ème ligne de config afin de faire les check*/

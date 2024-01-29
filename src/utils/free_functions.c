@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui free les tableaux précédemment malloc en cas d'erreur*/
 void	free_errors(t_game *game)

@@ -1,4 +1,4 @@
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie qu'il n'y a que des espaces,
 // des 0, des 1, et soit S, N, W, E dans la map*/

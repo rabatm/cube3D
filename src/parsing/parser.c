@@ -89,7 +89,7 @@ void parse_file(t_game *game)
 	int 	i;
 	t_ctext	*color_texture;
 	
-
+	color_texture = malloc(sizeof(t_ctext));
 	i = 0;
 	while(i < 6)
 	{

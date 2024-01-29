@@ -33,7 +33,7 @@ OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
 # Compilation générique des fichiers objets
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@mkdir -p $(OBJDIR)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle par défaut

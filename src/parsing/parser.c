@@ -5,7 +5,7 @@
 	à être parsés pour générer le jeux.
 */
 
-#include "include/cube3d.h"
+#include "../includes/cube3d.h"
 
 //fonction aui traite la resolution 
 void parse_resolution(char *line, t_game *game)
@@ -39,16 +39,25 @@ void parse_texture(char *line, t_game *game)
 	}
 }
 //fonction aui traite les couleurs ex F C
+t_color parse_rgb_values(char *line)
+{
+	char 	**rgb_values;
+	t_color color;
+
+	rgb_values = ft_split(line, ',');
+	color.r = ft_atoi(rgb_values[0]);
+	color.g = ft_atoi(rgb_values[1]);
+	color.b = ft_atoi(rgb_values[2]);
+	ft_free_char_array(rgb_values, 3);
+	return color;
+}
+
 void parse_color(char *line, t_game *game)
 {
 	if (line[0] == 'F')
-	{
-		game->floor_color = ft_strdup(line + 2);
-	}
+		game->color_floor = parse_rgb_values(line + 2);
 	else if (line[0] == 'C')
-	{
-		game->ceiling_color = ft_strdup(line + 2);
-	}
+		game->color_ceiling = parse_rgb_values(line + 2);
 	else
 	{
 		printf("Error\nInvalid line in file\n");

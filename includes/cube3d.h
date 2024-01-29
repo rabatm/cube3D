@@ -5,27 +5,23 @@
 */
 
 #ifndef CUBE3D_H
-#define CUBE3D_H
+# define CUBE3D_H
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_ttf.h>
+# include "structs.h"
+# include <math.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
-#include "constantes.h"
 
-
-/**
-	Structure de données Cube3D
+/*
+FT UTILS
 */
-typedef struc s_game
-{
-	int		resolution_x;
-	int		resolution_y;
-	char	*texture_north;
-	char	*texture_south;
-	char	*texture_east;
-	char	*texture_west;
-	int		color_floor;
-	int		color_ceiling;
-	char 	**map;
-}
+void ft_free_char_array(char **my_array, int len);
+void ft_error(char *str);
+
+/*
+FT pour la structure
+*/
+void	ft_init_game(t_game *game);
+
+#endif

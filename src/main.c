@@ -1,5 +1,6 @@
 
-#include "include/cube3d.h"
+
+#include "../includes/cube3d.h"
 /**
 fichier main du projet cub3d
 ce fichier contient la fonction main

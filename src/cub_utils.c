@@ -1,6 +1,7 @@
 #include "../includes/cub3d.h"
 
-/*Fonction qui affiche le message d'erreur et termine le programme correctement*/
+/*Fonction qui affiche le message d'erreur
+// et termine le programme correctement*/
 void	ft_error(char *str)
 {
 	ft_printf("Error :\n%s\n", str);
@@ -44,12 +45,11 @@ void	get_nb_lines(t_game *game)
 Sert principalement pour débugger*/
 void	display_struct_values(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	ft_printf("Nb cols = %d\n", game->max_line_len);
 	ft_printf("Nb rows = %d\n", game->nb_lines);
-
 	// ft_printf("\nPlayer x pos = %d\n", game->player.x);
 	// ft_printf("Player y pos = %d\n", game->player.y);
 	// ft_printf("\nNb colls = %d\n", game->nb_colls);
@@ -57,7 +57,6 @@ void	display_struct_values(t_game *game)
 	// ft_printf("\n   Collectibles:   \n");
 	// while (++i < game->nb_colls)
 	// 	ft_printf(" x = %d  - y = %d\n", game->c[i].x, game->c[i].y);
-
 	i = -1;
 	ft_printf("\n   Config file:	\n");
 	while (game->config[++i])

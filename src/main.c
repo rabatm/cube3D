@@ -1,9 +1,9 @@
 #include "../includes/cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game game;
-    game.flag = 0;
+	t_game	game;
+	game.flag = 0;
 	if (argc == 2)
 	{
 		/*fonction qui lit le fichier*/

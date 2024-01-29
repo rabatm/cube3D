@@ -18,12 +18,14 @@ void	free_errors(t_game *game)
 		free(game->matrix[i]);
 	free(game->matrix);
 }
+
 /*Fonction qui free les tableaux + indique le message d'erreur correspondant*/
 void	free_errors2(t_game *game, char *str)
 {
 	free_errors(game);
 	ft_error(str);
 }
+
 /*Fonction qui free tout en fin de programme*/
 void	free_all(t_game *game)
 {

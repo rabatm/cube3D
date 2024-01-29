@@ -1,55 +1,55 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <math.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/Xos.h>
-#include <X11/keysym.h>
-#include "../lib/libft/libft.h"
-#include "../lib/minilibx/mlx.h"
-#include "../lib/libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <math.h>
+# include <X11/Xlib.h>
+# include <X11/Xutil.h>
+# include <X11/Xos.h>
+# include <X11/keysym.h>
+# include "../lib/libft/libft.h"
+# include "../lib/minilibx/mlx.h"
+# include "../lib/libft/libft.h"
 
 typedef struct s_point
 {
-    int     x;
-    int     y;
-}               t_point;
+	int	x;
+	int	y;
+}				t_point;
 
 typedef struct s_game
 {
-    int     flag;
-    char    **tab;
-    char    **config;
-    int     nb_lines;
-    int     max_line_len;
-    char    **matrix;
+	int		flag;
+	char	**tab;
+	char	**config;
+	int		nb_lines;
+	int		max_line_len;
+	char	**matrix;
 
-    t_point player;
+	t_point	player;
 
-    /*Variables dont on pourrait avoir besoin dans le projet*/
+	/*Variables dont on pourrait avoir besoin dans le projet*/
 
-    // void    *mlx;
-    // void    *win;
-    // int     width;
-    // int     height;
-    // int     map_width;
-    // int     map_height;
-    // int     tile_size;
-    // int     player_x;
-    // int     player_y;
-    // int     player_size;
-    // int     player_turn_direction;
-    // int     player_walk_direction;
-    // int     player_side_direction;
-    // int     player_rotation_angle;
-    // int     walk_speed;
-    // int     turn_speed;
-}               t_game;
+	// void    *mlx;
+	// void    *win;
+	// int     width;
+	// int     height;
+	// int     map_width;
+	// int     map_height;
+	// int     tile_size;
+	// int     player_x;
+	// int     player_y;
+	// int     player_size;
+	// int     player_turn_direction;
+	// int     player_walk_direction;
+	// int     player_side_direction;
+	// int     player_rotation_angle;
+	// int     walk_speed;
+	// int     turn_speed;
+}		t_game;
 
 
 /*Structure dont on pourrait avoir besoin dans le projet*/
@@ -69,15 +69,15 @@ typedef struct s_game
 
 typedef struct s_img
 {
-    void    *img;
-    char    *addr;
-    int     bits_per_pixel;
-    int     line_length;
-    int     endian;
-}               t_img;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img;
 
 
-/*--------------------------Liste des fonctions présentes dans le projet---------------*/
+/*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
 void	read_file(char *file_path, t_game *game);
 void	get_max_line_len(t_game *game);

@@ -30,7 +30,8 @@ static int	check_outline(t_game *game)
 	return (0);
 }
 
-/*Fonction qui vérifie qu'il n'y a pas d'espaces autour des '0' sinon la map n'est pas entourée de murs*/
+/*Fonction qui vérifie qu'il n'y a pas d'espaces autour des '0'
+// sinon la map n'est pas entourée de murs*/
 static int	check_spaces(t_game *game)
 {
 	int	i;
@@ -44,7 +45,10 @@ static int	check_spaces(t_game *game)
 		{
 			if (game->matrix[i][j] == '0')
 			{
-				if (game->matrix[i][j - 1] == ' ' || game->matrix[i][j + 1] == ' ' || game->matrix[i - 1][j] == ' ' || game->matrix[i + 1][j] == ' ')
+				if (game->matrix[i][j - 1] == ' ' \
+					|| game->matrix[i][j + 1] == ' ' \
+					|| game->matrix[i - 1][j] == ' ' \
+					|| game->matrix[i + 1][j] == ' ')
 					free_errors2(game, "Map is not surrounded by walls.");
 			}
 			j++;

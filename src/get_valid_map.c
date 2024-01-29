@@ -1,6 +1,7 @@
 #include "../includes/cub3d.h"
 
-/*Fonction qui récupère seulement la map du fichier de config à partir de la 6ème ligne de config afin de faire les check*/
+/*Fonction qui récupère seulement la map du fichier de config
+// à partir de la 6ème ligne de config afin de faire les check*/
 void	get_map_from_config(t_game *game)
 {
 	int	i;
@@ -16,7 +17,8 @@ void	get_map_from_config(t_game *game)
 	i = 5;
 	while (++i < map_size + 6)
 	{
-		game->tab[i - 6] = malloc(sizeof(char) * (ft_strlen(game->config[i]) + 1));
+		game->tab[i - 6] = malloc(sizeof(char) * \
+			(ft_strlen(game->config[i]) + 1));
 		game->tab[i - 6][ft_strlen(game->config[i])] = '\0';
 	}
 	i = 5;
@@ -27,7 +29,9 @@ void	get_map_from_config(t_game *game)
 			game->tab[i - 6][j] = game->config[i][j];
 	}
 }
-/*Fonction qui remplit la map d'espaces afin de simplifier les vérifications utlérieures de la map*/
+
+/*Fonction qui remplit la map d'espaces afin de
+// simplifier les vérifications utlérieures de la map*/
 void	get_map_rectangular(t_game *game)
 {
 	int	i;

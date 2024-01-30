@@ -22,6 +22,10 @@ void	get_max_line_len(t_game *game);
 void	get_nb_lines(t_game *game);
 void	get_map_rectangular(t_game *game);
 void	get_map_from_config(t_game *game);
+//function pour le parsing des textures
+int		parse_texture(char *line, t_ctext *color_texture);
+void	parse_config(t_game *game);
+int		check_texture_color(char *line, t_ctext *color_texture);
 
 /*Fonctions de gestion des éléments graphiques*/
 // int		create_window(t_game *game);

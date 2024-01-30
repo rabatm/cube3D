@@ -7,30 +7,26 @@
 
 #include "../../includes/cub3d.h"
 
-//fonction aui traite les texture ex NO SO WE EA
-void parse_texture(char *line, t_ctext *color_texture)
+//fonction qui vérifie que la couleur est bien comprise entre 0 et 255
+// sans virgule, que c'est pas un caractère et que c'est pas un négatif
+int set_color_and_check(char *line)
 {
-	if (line[0] == 'N' && line[1] == 'O')
+	int i;
+	int color;
+
+	i = 0;
+	while (line[i])
 	{
-		color_texture->texture_north = ft_strdup(line + 3);
+		if (line[i] == ',')
+			return (-1);
+		if (line[i] < '0' || line[i] > '9')
+			return (-1);
+		i++;
 	}
-	else if (line[0] == 'S' && line[1] == 'O')
-	{
-		color_texture->texture_south = ft_strdup(line + 3);
-	}
-	else if (line[0] == 'W' && line[1] == 'E')
-	{
-		color_texture->texture_west = ft_strdup(line + 3);
-	}
-	else if (line[0] == 'E' && line[1] == 'A')
-	{
-		color_texture->texture_east = ft_strdup(line + 3);
-	}
-	else
-	{
-		ft_printf("Error\nInvalid line in file\n");
-		exit(0);
-	}
+	color = ft_atoi(line);
+	if (ft_atoi(line) < 0 || ft_atoi(line) > 255)
+		return (-1);
+	return (color);
 }
 //fonction aui traite les couleurs ex F C
 t_color parse_rgb_values(char *line)
@@ -39,60 +35,66 @@ t_color parse_rgb_values(char *line)
 	t_color color;
 
 	rgb_values = ft_split(line, ',');
-	color.r = ft_atoi(rgb_values[0]);
-	color.g = ft_atoi(rgb_values[1]);
-	color.b = ft_atoi(rgb_values[2]);
-	ft_free_char_array(rgb_values, 3);
-	return color;
-}
-
-void parse_color(char *line, t_ctext *color_texture)
-{
-	if (line[0] == 'F')
-		color_texture->color_floor = parse_rgb_values(line + 2);
-	else if (line[0] == 'C')
-		color_texture->color_ceiling = parse_rgb_values(line + 2);
+	if (ft_arraylen(rgb_values) != 3)
+		color.r = -1;
 	else
 	{
-		ft_printf("Error\nInvalid line in file\n");
-		exit(0);
+		color.r = set_color_and_check(rgb_values[0]);
+		color.g = set_color_and_check(rgb_values[1]);
+		color.b = set_color_and_check(rgb_values[2]);
 	}
+	ft_free_char_array(rgb_values, 3);
+	return (color);
+}
+
+int parse_color(char *line, t_ctext *color_texture)
+{
+	t_color color;
+	if (!check_texture_color(line, color_texture))
+		return(0);
+	color = parse_rgb_values(line + 2);
+	if (color.r == -1 || color.g == -1 || color.b == -1)
+		return (0);
+	if (line[0] == 'F')
+		color_texture->color_floor = color;
+	else
+		color_texture->color_ceiling = color;
+	return(1);
 }
 
 //fonction qui traite les lignes du fichier
 // et les envoies aux fonctions de traitement
-void parse_line(char *line, t_ctext *color_texture)
+int parse_line(char *line, t_ctext *color_texture)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		parse_texture(line, color_texture);
+		return(parse_texture(line, color_texture));
 	else if (line[0] == 'S' && line[1] == 'O')
-		parse_texture(line, color_texture);
+		return(parse_texture(line, color_texture));
 	else if (line[0] == 'W' && line[1] == 'E')
-		parse_texture(line, color_texture);
+		return(parse_texture(line, color_texture));
 	else if (line[0] == 'E' && line[1] == 'A')
-		parse_texture(line, color_texture);
+		return(parse_texture(line, color_texture));
 	else if (line[0] == 'F')
-		parse_color(line, color_texture);
+		return(parse_color(line, color_texture));
 	else if (line[0] == 'C')
-		parse_color(line, color_texture);
-	else
-	{
-		ft_printf("Error\nInvalid line in file\n");
-		exit(0);
-	}
+		return(parse_color(line, color_texture));
+	return(0);
 }
 
 //fonction qui recupere les informations depuis config de la structure
 // pour le stocker au bon endroit dans la structure game 
-void parse_file(t_game *game)
+void parse_config(t_game *game)
 {
 	int 	i;
-	t_ctext	*color_texture;
-	
-	color_texture = malloc(sizeof(t_ctext));
+
 	i = 0;
 	while(i < 6)
 	{
-		parse_line(game->config[i], color_texture);
+		if (parse_line(game->config[i], &(game->color_texture)) == 0)
+		{
+			free_all(game);
+			ft_error("Invalid line in file\n");
+		}
+		i++;
 	}
 }

@@ -4,7 +4,7 @@
 // et termine le programme correctement*/
 void	ft_error(char *str)
 {
-	ft_printf("Error :\n%s\n", str);
+	ft_printf("\033[31mError : %s\n\033[0m", str);
 	exit(EXIT_FAILURE);
 }
 

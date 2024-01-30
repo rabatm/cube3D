@@ -1,11 +1,12 @@
 #include "../includes/cub3d.h"
+
 /**
 fichier main du projet cub3d
 ce fichier contient la fonction main
 qui est la fonction principale du programme
 
 */
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_game	game;
 

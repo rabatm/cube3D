@@ -3,12 +3,14 @@ Fichier qui contient les fonctions d'initiationsation et de supresion
 */
 #include "../../includes/cub3d.h"
 
-static t_color init_color() {
-    t_color color;
-    color.r = -1;
-    color.g = -1;
-    color.b = -1;
-    return color;
+static t_color	init_color(void)
+{
+	t_color	color;
+
+	color.r = -1;
+	color.g = -1;
+	color.b = -1;
+	return (color);
 }
 
 void	ft_init_game(t_game *game)

@@ -28,6 +28,10 @@ typedef struct s_game
 	int		nb_lines;
 	int		max_line_len;
 	char	**matrix;
+	int		mlx_ptr;
+	int		win_ptr;
+	int		res_x;
+	int		res_y;
 
 	t_point	player;
 
@@ -64,15 +68,6 @@ typedef struct s_game
 //     int     is_ray_facing_right;
 //     int     wall_hit_content;
 // }               t_ray;
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_img;
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/

@@ -26,6 +26,7 @@ void	get_map_from_config(t_game *game);
 int		parse_texture(char *line, t_ctext *color_texture);
 void	parse_config(t_game *game);
 int		check_texture_color(char *line, t_ctext *color_texture);
+int		parse_color(char *line, t_ctext *color_texture);
 
 /*Fonctions de gestion des éléments graphiques*/
 // int		create_window(t_game *game);
@@ -40,6 +41,7 @@ int		check_texture_color(char *line, t_ctext *color_texture);
 void	free_errors(t_game *game);
 void	free_errors2(t_game *game, char *str);
 void	free_all(t_game *game);
+void	free_ct_conf(t_game *game);
 
 
 /*Fonctions de gestion des erreurs*/
@@ -51,7 +53,7 @@ int		check_walls(t_game *game);
 /*
 FT UTILS
 */
-void ft_free_char_array(char **my_array, int len);
+void ft_free_char_array(char **my_array);
 void check_file_extension(char *str, char *ext);
 /*
 FT pour la structure

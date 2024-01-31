@@ -15,12 +15,12 @@ int	main(int argc, char **argv)
 		ft_init_game(&game);
 		/*fonction qui lit le fichier*/
 		read_file(argv[1], &game);
+		/*fonction pour parser la config*/
+		parse_config(&game);
 		/*fonction qui extrait la map du fichier de config*/
 		get_map_from_config(&game);
 		/*fonction qui verifie que la map est OK*/
 		check_map(&game);
-		/*fonction pour parser la config*/
-		parse_config(&game);
 	}
 	else
 		ft_error("You must have 2 arguments.");

@@ -27,8 +27,8 @@ typedef struct s_ctext
 	char		*texture_south;
 	char		*texture_east;
 	char		*texture_west;
-	t_color		color_floor;
-	t_color		color_ceiling;
+	int			color_floor;
+	int			color_ceiling;
 } t_ctext;
 
 

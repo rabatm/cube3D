@@ -39,9 +39,9 @@ int	check_texture_color(char *line, t_ctext *color_texture)
 	else if ((line[0] == 'E' && line[1] == 'A')
 		&& (color_texture->texture_east != NULL))
 		return (0);
-	else if ((line[0] == 'F') && (color_texture->color_floor.r != -1))
+	else if ((line[0] == 'F') && (color_texture->color_floor != -1))
 		return (0);
-	else if ((line[0] == 'C') && (color_texture->color_ceiling.r != -1))
+	else if ((line[0] == 'C') && (color_texture->color_ceiling != -1))
 		return (0);
 	return (1);
 }

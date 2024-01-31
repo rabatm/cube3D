@@ -50,6 +50,8 @@ void	display_struct_values(t_game *game)
 	i = -1;
 	ft_printf("Nb cols = %d\n", game->max_line_len);
 	ft_printf("Nb rows = %d\n", game->nb_lines);
+	ft_printf("F color = %d\n", game->color_texture.color_floor);
+	ft_printf("C color = %d\n", game->color_texture.color_ceiling);
 	// ft_printf("\nPlayer x pos = %d\n", game->player.x);
 	// ft_printf("Player y pos = %d\n", game->player.y);
 	// ft_printf("\nNb colls = %d\n", game->nb_colls);

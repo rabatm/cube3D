@@ -25,25 +25,24 @@ LIBFT = $(LIBFTDIR)/libft.a
 LIBMINI = $(LIBMINIDIR_ORIGIN)/libmlx.a lib/minilibx/libmlx_Linux.a
 
 
+# Recherche des fichiers source .c dans les sous-répertoires
+SRCS := $(shell find $(SRCDIR) -type f -name '*.c')
 
-# Fichiers sources et objets
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+# Génération des noms de fichiers objets à partir des noms de fichiers sources
+OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+
+# Compilation générique des fichiers objets
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle par défaut
 all: $(NAME)
 
 # Règle de construction de l'exécutable
-$(NAME): $(LIBMINI) $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
-	@echo "$(BLUE)$(NAME) READY$(DEF_COLOR)"
-
-# Règle de compilation des fichiers objets
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-# Création du dossier obj s'il n'existe pas
-	@$(shell mkdir -p $(OBJDIR))
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(YELLOW)OBJ CREATED$(DEF_COLOR)"
+$(NAME): $(LIBMINI) $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
+	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
 
 # Règle de construction de la bibliothèque libft.a
 $(LIBFT):
@@ -63,9 +62,8 @@ clean:
 
 # Règle de nettoyage complet
 fclean: clean
-	@#$(MAKE) fclean -sC $(LIBFTDIR)
-	@rm -f $(NAME)
-	@echo "$(RED)Everything is cleaned!$(DEF_COLOR)"
+	rm -f $(NAME)
+	@echo "$(RED)cleaned!$(DEF_COLOR)"
 
 # Règle de recompilation complète
 re: fclean all

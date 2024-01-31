@@ -9,9 +9,11 @@ pour la color
 // on décale les bits de 16 pour le rouge
 // de 8 pour le vert
 // et on ajoute le bleu
-int mlx_rgb_to_pixel(t_color color) {
+int	mlx_rgb_to_pixel(t_color color)
+{
 	return ((color.r << 16) | (color.g << 8) | color.b);
 }
+
 // fonction qui vérifie que la couleur est bien comprise entre 0 et 255
 // sans virgule, que c'est pas un caractère et que c'est pas un négatif
 int	set_color_and_check(char *line)

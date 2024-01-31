@@ -23,7 +23,7 @@ int	parse_line(char *line, t_ctext *color_texture)
 		return (parse_color(line, color_texture));
 	else if (line[0] == 'C')
 		return (parse_color(line, color_texture));
-	return (0);
+	return (-2);
 }
 
 // fonction qui recupere les informations depuis config de la structure
@@ -31,17 +31,17 @@ int	parse_line(char *line, t_ctext *color_texture)
 void	parse_config(t_game *game)
 {
 	int	i;
+	int	ret;
 
 	i = 0;
-	while (i < 6)
+	ret = 0;
+	while (1)
 	{
-		if (parse_line(game->config[i], &(game->color_texture)) == 0)
-		{
-			fprintf(stderr, "Error %s\n", game->config[i]);
-			free_ct_conf(game);
-			ft_error("Invalid line in file\n");
-		}
-		i++;
+		ret = parse_line(game->config[i++], &(game->color_texture));
+		if (ret == 0)
+			free_ct_conf_error(game, "Invalid line in file\n");
+		if (ret == -2)
+			break ;
 	}
 	if (game->color_texture.texture_north == NULL
 		|| game->color_texture.texture_south == NULL
@@ -49,8 +49,5 @@ void	parse_config(t_game *game)
 		|| game->color_texture.texture_west == NULL
 		|| game->color_texture.color_floor == -1
 		|| game->color_texture.color_ceiling == -1)
-	{
-		free_ct_conf(game);
-		ft_error("Information missing in confFile \n");
-	}
+		free_ct_conf_error(game, "Information missing in confFile \n");
 }

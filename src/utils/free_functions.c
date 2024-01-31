@@ -1,11 +1,11 @@
 #include "../../includes/cub3d.h"
 
-void free_ct_conf(t_game *game) 
+void	free_ct_conf(t_game *game)
 {
 	free(game->color_texture.texture_north);
-    free(game->color_texture.texture_south);
-    free(game->color_texture.texture_west);
-    free(game->color_texture.texture_east);
+	free(game->color_texture.texture_south);
+	free(game->color_texture.texture_west);
+	free(game->color_texture.texture_east);
 	ft_free_char_array(game->config);
 }
 
@@ -30,4 +30,10 @@ void	free_all(t_game *game)
 	ft_free_char_array(game->tab);
 	ft_free_char_array(game->matrix);
 	free_ct_conf(game);
+}
+
+void	free_ct_conf_error(t_game *game, char *msg)
+{
+	free_ct_conf(game);
+	ft_error(msg);
 }

@@ -53,10 +53,9 @@ int	check_texture_color(char *line, t_ctext *color_texture)
 int	parse_texture(char *line, t_ctext *color_texture)
 {
 	char	*tmp;
-	char	*str_for_trim = " ";
+	char	*str_for_trim;
 
-	fprintf(stderr, "line = %s %d\n", line, check_texture_color(line,
-			color_texture));
+	str_for_trim = " ";
 	if (check_texture_color(line, color_texture) == 0)
 		return (0);
 	tmp = ft_strtrim(line + 3, str_for_trim);

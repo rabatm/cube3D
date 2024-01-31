@@ -1,6 +1,6 @@
 #include "../includes/cub3d.h"
 
-void	create_window(t_game *game)
+/*void	create_window(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (game->mlx_ptr == NULL)
@@ -17,4 +17,4 @@ void	create_window(t_game *game)
 	// mlx_hook(game->win_ptr, KeyPress, KeyPressMask, &handle_keypress, game);
 	// mlx_hook(game->win_ptr, 17, 1L << 0, &close_everything, game);
 	mlx_loop(game->mlx_ptr);
-}
+}*/

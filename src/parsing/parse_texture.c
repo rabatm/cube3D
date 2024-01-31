@@ -53,12 +53,13 @@ int	check_texture_color(char *line, t_ctext *color_texture)
 int	parse_texture(char *line, t_ctext *color_texture)
 {
 	char	*tmp;
+	char	*str_for_trim = " ";
 
 	fprintf(stderr, "line = %s %d\n", line, check_texture_color(line,
 			color_texture));
 	if (check_texture_color(line, color_texture) == 0)
 		return (0);
-	tmp = ft_strtrim(line + 3, " ");
+	tmp = ft_strtrim(line + 3, str_for_trim);
 	if (check_file_extension_and_existence(tmp) == 0)
 		return (0);
 	if (line[0] == 'N' && line[1] == 'O')

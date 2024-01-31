@@ -94,9 +94,20 @@ void	parse_config(t_game *game)
 	{
 		if (parse_line(game->config[i], &(game->color_texture)) == 0)
 		{
+			fprintf(stderr, "Error %s\n", game->config[i]);
 			free_all(game);
 			ft_error("Invalid line in file\n");
 		}
 		i++;
+	}
+	if (game->color_texture.texture_north == NULL
+		|| game->color_texture.texture_south == NULL
+		|| game->color_texture.texture_east == NULL
+		|| game->color_texture.texture_west == NULL
+		|| game->color_texture.color_floor.r == -1
+		|| game->color_texture.color_ceiling.r == -1)
+	{
+		free_all(game);
+		ft_error("Information missing in confFile \n");
 	}
 }

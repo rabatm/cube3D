@@ -1,5 +1,12 @@
 #include "../../includes/cub3d.h"
 
+static void free_color_texture(t_ctext *color_texture) {
+    free(color_texture->texture_north);
+    free(color_texture->texture_south);
+    free(color_texture->texture_west);
+    free(color_texture->texture_east);
+    // libérer d'autres champs si nécessaire
+}
 /*Fonction qui free les tableaux précédemment malloc en cas d'erreur*/
 void	free_errors(t_game *game)
 {
@@ -17,6 +24,7 @@ void	free_errors(t_game *game)
 	while (game->matrix[++i])
 		free(game->matrix[i]);
 	free(game->matrix);
+	free_color_texture(&(game->color_texture));
 }
 
 /*Fonction qui free les tableaux + indique le message d'erreur correspondant*/
@@ -43,4 +51,5 @@ void	free_all(t_game *game)
 	while (game->matrix[++i])
 		free(game->matrix[i]);
 	free(game->matrix);
+	free_color_texture(&(game->color_texture));
 }

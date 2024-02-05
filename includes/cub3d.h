@@ -15,6 +15,8 @@
 # include "../lib/libft/libft.h"
 # include "structs.h"
 
+# define TILE_SIZE 64
+
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
 void	read_file(char *file_path, t_game *game);
@@ -29,9 +31,9 @@ int		check_texture_color(char *line, t_ctext *color_texture);
 int		parse_color(char *line, t_ctext *color_texture);
 
 /*Fonctions de gestion des éléments graphiques*/
-// int		create_window(t_game *game);
-// int		handle_keypress(int keysym, t_game *game);
-// int		close_everything(t_game *game);
+int		init_window(t_game *game);
+int		handle_escape(int keysym, t_game *game);
+int		close_everything(t_game *game);
 
 /*Fonctions de gestion du raycasting*/
 
@@ -54,8 +56,8 @@ int		check_walls(t_game *game);
 /*
 FT UTILS
 */
-void ft_free_char_array(char **my_array);
-void check_file_extension(char *str, char *ext);
+void	ft_free_char_array(char **my_array);
+void	check_file_extension(char *str, char *ext);
 /*
 FT pour la structure
 */

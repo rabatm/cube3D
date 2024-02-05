@@ -9,11 +9,12 @@
 /**
 	Structure pour stocker les couleurs RGB
 */
-typedef struct s_color {
-	int r;
-	int g;
-	int b;
-} t_color;
+typedef struct s_color
+{
+	int		r;
+	int		g;
+	int		b;
+}			t_color;
 
 typedef struct s_point
 {
@@ -29,7 +30,7 @@ typedef struct s_ctext
 	char		*texture_west;
 	int			color_floor;
 	int			color_ceiling;
-} t_ctext;
+}		t_ctext;
 
 
 typedef struct s_game
@@ -40,8 +41,10 @@ typedef struct s_game
 	int		nb_lines;
 	int		max_line_len;
 	char	**matrix;
-	int			resolution_x;
-	int			resolution_y;
+	int		resolution_x;
+	int		resolution_y;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	t_ctext	color_texture;
 	t_point	player;
 

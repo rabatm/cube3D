@@ -26,7 +26,7 @@ void	get_max_line_len(t_game *game)
 			max = j;
 	}
 	game->max_line_len = max;
-	ft_printf("Max line = %d\n", game->max_line_len);
+	// ft_printf("Max line = %d\n", game->max_line_len);
 }
 
 /*Fonction qui récupère la valeur du nombre de lignes*/
@@ -38,7 +38,20 @@ void	get_nb_lines(t_game *game)
 	while (game->tab[++i])
 		;
 	game->nb_lines = i;
-	ft_printf("Nb lines = %d\n", game->nb_lines);
+	// ft_printf("Nb lines = %d\n", game->nb_lines);
+}
+
+int	close_everything(t_game *game)
+{
+	// free_all(game);
+	// mlx_destroy_image(game->mlx_ptr, game->player.ptr);
+	// mlx_destroy_image(game->mlx_ptr, game->wall.ptr);
+	// mlx_destroy_image(game->mlx_ptr, game->coll.ptr);
+	// mlx_destroy_image(game->mlx_ptr, game->exit.ptr);
+	// mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	// mlx_destroy_display(game->mlx_ptr);
+	free(game->mlx_ptr);
+	exit(0);
 }
 
 /*Fonction qui affiche les élements de la structure

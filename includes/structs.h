@@ -45,27 +45,13 @@ typedef struct s_game
 	int		resolution_y;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	// int		window_width;
+	// int		window_height;
 	t_ctext	color_texture;
 	t_point	player;
+	t_point	direction;
+	t_point	plane;
 
-	/*Variables dont on pourrait avoir besoin dans le projet*/
-
-	// void    *mlx;
-	// void    *win;
-	// int     width;
-	// int     height;
-	// int     map_width;
-	// int     map_height;
-	// int     tile_size;
-	// int     player_x;
-	// int     player_y;
-	// int     player_size;
-	// int     player_turn_direction;
-	// int     player_walk_direction;
-	// int     player_side_direction;
-	// int     player_rotation_angle;
-	// int     walk_speed;
-	// int     turn_speed;
 }		t_game;
 
 

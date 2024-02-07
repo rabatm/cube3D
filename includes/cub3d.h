@@ -15,7 +15,8 @@
 # include "../lib/libft/libft.h"
 # include "structs.h"
 
-# define TILE_SIZE 64
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
@@ -34,6 +35,8 @@ int		parse_color(char *line, t_ctext *color_texture);
 int		init_window(t_game *game);
 int		handle_escape(int keysym, t_game *game);
 int		close_everything(t_game *game);
+// void	draw_minimap(t_game *game);
+void	draw_sky_n_floor(t_game *game, t_ctext *color_texture);
 
 /*Fonctions de gestion du raycasting*/
 

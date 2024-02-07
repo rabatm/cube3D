@@ -43,13 +43,9 @@ void	get_nb_lines(t_game *game)
 
 int	close_everything(t_game *game)
 {
-	// free_all(game);
-	// mlx_destroy_image(game->mlx_ptr, game->player.ptr);
-	// mlx_destroy_image(game->mlx_ptr, game->wall.ptr);
-	// mlx_destroy_image(game->mlx_ptr, game->coll.ptr);
-	// mlx_destroy_image(game->mlx_ptr, game->exit.ptr);
-	// mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	// mlx_destroy_display(game->mlx_ptr);
+	free_all(game);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
 	exit(0);
 }

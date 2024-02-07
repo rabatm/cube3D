@@ -6,6 +6,16 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+
+typedef struct s_img
+{
+    void	*mlx_img;
+    char	*addr;
+    int		bpp; /* bits per pixel */
+    int		line_len;
+    int		endian;
+}	t_img;
+
 /**
 	Structure pour stocker les couleurs RGB
 */
@@ -51,7 +61,7 @@ typedef struct s_game
 	t_point	player;
 	t_point	direction;
 	t_point	plane;
-
+	t_img	img;
 }		t_game;
 
 
@@ -70,14 +80,6 @@ typedef struct s_game
 //     int     wall_hit_content;
 // }               t_ray;
 
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_img;
 
 
 #endif

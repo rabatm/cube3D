@@ -1,5 +1,15 @@
 #include "../../includes/cub3d.h"
 
+
+
+void	img_pix_put(t_img *img, int x, int y, int color)
+{
+    char    *pixel;
+
+    pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+    *(int *)pixel = color;
+}
+
 /*Fonction qui affiche le sol et le ciel*/
 void	draw_sky_n_floor(t_game *game, t_ctext *color_texture)
 {
@@ -11,15 +21,24 @@ void	draw_sky_n_floor(t_game *game, t_ctext *color_texture)
 	{
 		j = -1;
 		while (++j < WINDOW_WIDTH)
-			mlx_pixel_put(game->mlx_ptr, game->win_ptr, j, i, color_texture->color_ceiling);
+			img_pix_put(&game->img, j, i, color_texture->color_ceiling);
 	}
 	while (i < WINDOW_HEIGHT)
 	{
 		j = -1;
 		while (++j < WINDOW_WIDTH)
-			mlx_pixel_put(game->mlx_ptr, game->win_ptr, j, i, color_texture->color_floor);
+			img_pix_put(&game->img, j, i, color_texture->color_floor);
 		i++;
 	}
+}
+int	render(t_game *game)
+{
+	if (game->win_ptr == NULL)
+		return (1);
+	draw_sky_n_floor(game, &game->color_texture);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.mlx_img, 0, 0);
+
+	return (0);
 }
 
 /*Fonction qui affiche une fenetre vide pour l'instant avec minimap*/
@@ -40,10 +59,10 @@ int	init_window(t_game *game)
 	mlx_hook(game->win_ptr, 17, 1L << 0, &close_everything, game);
 
 	//fonction qui affiche la minimap mais à retravailler
-	// if (game->win_ptr != NULL)
-	// 	draw_minimap(game);
-	draw_sky_n_floor(game, &game->color_texture);
-	// mlx_loop_hook(game->mlx_ptr, &display_pix, game);
+	draw_minimap(game);
+	game->img.mlx_img = mlx_new_image(game->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
+	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,&game->img.line_len, &game->img.endian);
+	mlx_loop_hook(game->mlx_ptr, &render, game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
 }

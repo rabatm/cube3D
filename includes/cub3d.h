@@ -1,6 +1,5 @@
 #ifndef CUB3D_H
 # define CUB3D_H
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -16,7 +15,7 @@
 # include "structs.h"
 
 # define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 300
+# define WINDOW_HEIGHT 473
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
@@ -35,9 +34,12 @@ int		parse_color(char *line, t_ctext *color_texture);
 int		init_window(t_game *game);
 int		handle_escape(int keysym, t_game *game);
 int		close_everything(t_game *game);
-void	draw_minimap(t_game *game);
 void	draw_sky_n_floor(t_game *game, t_ctext *color_texture);
 
+/* ft for barre*/
+void	draw_minimap(t_game *game);
+void	my_heal_bar(t_game *game);
+void	r_head(t_game *game);
 /*Fonctions de gestion du raycasting*/
 
 

@@ -19,6 +19,9 @@
 # define BUFFER_SIZE 1024
 # define WALLS_MM_COLOR 0x8E8E8E
 # define PL_MM_COLOR 0x27CE06
+# define MM_ZOOM 0.04
+
+# define RED 0xFF0000
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
@@ -39,6 +42,7 @@ int		handle_escape(int keysym, t_game *game);
 int		close_everything(t_game *game);
 void	draw_sky_n_floor(t_game *game);
 void	my_pix_put(t_game *game, int x, int y, int color);
+void	draw_pixel(t_game *game, int i, int j, int color);
 void	draw_minimap(t_game *game);
 
 /* ft for barre*/
@@ -48,6 +52,8 @@ void	r_head(t_game *game);
 
 /*Fonctions de gestion du raycasting*/
 void	dup_matrix_into_int_map(t_game *game);
+void	init_player(t_game *game);
+void	draw_ray(t_game *game);
 
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);

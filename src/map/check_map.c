@@ -45,6 +45,7 @@ static int	check_player(t_game *game)
 					free_errors2(game, "Only 1 player is allowed on the map.");
 				game->player.x = j;
 				game->player.y = i;
+				game->init_dir = game->tab[i][j];
 			}
 			j++;
 		}

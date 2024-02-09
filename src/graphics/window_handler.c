@@ -28,6 +28,7 @@ int	render(t_game *game)
 		return (1);
 	draw_sky_n_floor(game);
 	draw_minimap(game);
+	draw_ray(game);
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->buffer, 0, 0);
 	// r_head(game);
 	//my_heal_bar(game);

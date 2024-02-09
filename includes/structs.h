@@ -18,8 +18,12 @@ typedef struct s_color
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
 }				t_point;
 
 typedef struct s_ctext
@@ -48,6 +52,7 @@ typedef struct s_game
 	int		resolution_y;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	char	init_dir;
 
     void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
     char	*addr;
@@ -57,8 +62,6 @@ typedef struct s_game
 
 	t_ctext	color_texture;
 	t_point	player;
-	t_point	direction;
-	t_point	plane;
 }		t_game;
 
 

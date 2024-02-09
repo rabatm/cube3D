@@ -1,18 +1,18 @@
 #include "../../includes/cub3d.h"
 
 /*Fonction qui dessine chaque pixel*/
-static void draw_pixel(t_game *game, int i, int j, int color)
+void draw_pixel(t_game *game, int i, int j, int color)
 {
 	int y;
 	int x;
 
 	x = 0;
 	y = 0;
-	y = WINDOW_HEIGHT * 0.01 * i;
-	while (y < WINDOW_HEIGHT * 0.01 * (i + 1))
+	y = WINDOW_HEIGHT * MM_ZOOM * i;
+	while (y < WINDOW_HEIGHT * MM_ZOOM * (i + 1))
 	{
-		x = WINDOW_HEIGHT * 0.01 * j;
-		while (x < WINDOW_HEIGHT * 0.01 * (j + 1))
+		x = WINDOW_HEIGHT * MM_ZOOM * j;
+		while (x < WINDOW_HEIGHT * MM_ZOOM * (j + 1))
 		{
 			my_pix_put(game, x + 5, y + 5, color);
 			x++;

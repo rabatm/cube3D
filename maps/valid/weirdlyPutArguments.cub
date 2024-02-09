@@ -1,0 +1,67 @@
+EA ../files/east_texture 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F 220,100,0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      SO ../files/south_texture                 
+                                      
+                                                                                                                                                                                                                                                                                      C 225,30,0
+
+    WE ../files/west_texture
+    NO ../files/north_texture
+
+
+
+
+
+
+
+     111111111
+    1000S00001
+  11100010001
+ 10000010001
+ 11111111111

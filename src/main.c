@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	{
 		ft_init_game(&game);
 		/*fonction qui lit le fichier*/
-		read_file(argv[1], &game);
+		read_file(&game, argv[1]);
 		/*fonction pour parser la config*/
 		parse_config(&game);
 		/*fonction qui extrait la map du fichier de config*/
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	else
 		ft_error("You must have 2 arguments.");
 	/*fonction de debug*/
-	//display_struct_values(&game);
+	display_struct_values(&game);
 	init_window(&game);
 	/*fonction qui free tous éléments malloc*/
 	free_all(&game);

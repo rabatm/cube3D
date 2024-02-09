@@ -1,0 +1,17 @@
+NO ../files/north_texture
+
+SO ../files/south_texture
+
+WE ../files/west_texture
+
+EA ../files/east_texture
+
+F 220,100,0
+
+C 225,30,0
+
+     111111111
+    1000S00 001
+  111000100011
+ 10000010001
+ 11111111111

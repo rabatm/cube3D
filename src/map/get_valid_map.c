@@ -30,6 +30,7 @@ void	get_map_from_config(t_game *game)
 	}
 }
 
+
 /*Fonction qui remplit la map d'espaces afin de
 // simplifier les vérifications utlérieures de la map*/
 void	get_map_rectangular(t_game *game)
@@ -57,6 +58,36 @@ void	get_map_rectangular(t_game *game)
 		while (game->tab[i][++j])
 		{
 			game->matrix[i][j] = game->tab[i][j];
+		}
+	}
+}
+
+/*Fonction qui duplique la matrice dans un tableau d'int ** 
+// et échange les coordonnées i et j pour la gestion graphique i = y, j = x */
+void dup_matrix_into_int_map(t_game *game)
+{
+	int i;
+	int j;
+
+	i = -1;
+	game->int_map = (int **)malloc(sizeof(int *) * (game->nb_cols));
+	while (++i < game->nb_cols)
+		game->int_map[i] = (int *)malloc((sizeof(int) * (game->nb_rows)));
+	i = -1;
+	while (++i < game->nb_rows)
+	{
+		j = -1;
+		while (++j < game->nb_cols)
+		{
+			if (game->matrix[i][j] == '1')
+				game->int_map[j][i] = 1;
+			else if (game->matrix[i][j] == '0')
+				game->int_map[j][i] = 0;
+			else if (game->matrix[i][j] == 'N' || game->matrix[i][j] == 'S' \
+					|| game->matrix[i][j] == 'W' || game->matrix[i][j] == 'E')
+				game->int_map[j][i] = 0;
+			else
+				game->int_map[j][i] = 9;
 		}
 	}
 }

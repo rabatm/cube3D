@@ -60,7 +60,10 @@ void	check_map(t_game *game)
 	get_max_line_len(game);
 	get_nb_lines(game);
 	check_chars_in_map(game);
-	check_player(game);
 	get_map_rectangular(game);
+	check_player(game);
 	check_walls(game);
+	/*fonction qui transforme la map de chars en map d int*/
+	dup_matrix_into_int_map(game);
+	// exit(EXIT_SUCCESS);
 }

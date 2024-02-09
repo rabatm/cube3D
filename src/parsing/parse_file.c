@@ -1,32 +1,5 @@
 #include "../../includes/cub3d.h"
 
-/*Fonction qui lit le fd*/
-static char	*ft_read_fd(int fd, char *buffer, char *stash)
-{
-	int		nb_read;
-	char	*tmp;
-
-	nb_read = 1;
-	while (nb_read != '0')
-	{
-		nb_read = read(fd, buffer, 1024);
-		if (nb_read == -1)
-			return (0);
-		else if (nb_read == 0)
-			break ;
-		buffer[nb_read] = '\0';
-		if (!stash)
-			stash = ft_strdup("");
-		tmp = stash;
-		stash = ft_strjoin(tmp, buffer);
-		free(tmp);
-		tmp = NULL;
-		if (ft_strchr(buffer, '\n'))
-			break ;
-	}
-	return (stash);
-}
-
 /*Fonction qui vérifie si l'extension de fichier est valide*/
 void	check_file_extension(char *str, char *ext)
 {
@@ -34,28 +7,61 @@ void	check_file_extension(char *str, char *ext)
 		ft_error("Invalid file extension.");
 }
 
-/*Fonction qui lit le fichier en entier et le stocke dans **config*/
-void	read_file(char *file_path, t_game *game)
+static char *ft_open_x_2(char *str, int fd)
 {
-	int		fd;
-	char	*buffer;
-	char	*stash;
+	if (close(fd) == -1)
+		return (NULL);
+	return (str);
+}
 
-	check_file_extension(file_path, ".cub");
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-		ft_error("Incorrect file name or file path.");
-	buffer = (char *)malloc(sizeof(char) * (1025));
-	stash = NULL;
-	stash = ft_read_fd(fd, buffer, stash);
-	if (!stash)
+static char *ft_readfile(char *filename)
+{
+	int fd;
+	int ret;
+	int len_total;
+	char buf[BUFFER_SIZE];
+	char *str;
+
+	len_total = 0;
+	ret = BUFFER_SIZE;
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	while (ret)
 	{
-		free(buffer);
-		free(stash);
-		ft_error("File is empty.");
+		ret = read(fd, buf, BUFFER_SIZE);
+		len_total += ret;
 	}
-	close(fd);
-	free(buffer);
-	game->config = ft_split(stash, '\n');
-	free(stash);
+	if (close(fd) == -1)
+		return (NULL);
+	str = malloc(sizeof(char) * len_total + 1);
+	if (!str)
+		return (NULL);
+	fd = open(filename, O_RDONLY);
+	ret = read(fd, str, len_total);
+	str[len_total] = '\0';
+	return (ft_open_x_2(str, fd));
+}
+
+void read_file(t_game *game, char *filename)
+{
+	int i;
+	char *str;
+
+	i = 0;
+	check_file_extension(filename, ".cub");
+	str = ft_readfile(filename);
+	if (str[0] == 0)
+	{
+		free(str);
+		ft_error("File is empty !");
+		exit(0);
+	}
+	game->config = ft_split(str, '\n');
+	free(str);
+	if (!game->config)
+		exit(EXIT_FAILURE);
+	while (game->config[i])
+		i++;
+	game->max_line_len = i;
 }

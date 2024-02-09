@@ -69,5 +69,6 @@ int	parse_texture(char *line, t_ctext *color_texture)
 		color_texture->texture_west = tmp;
 	else if (line[0] == 'E' && line[1] == 'A')
 		color_texture->texture_east = tmp;
+	free(tmp);
 	return (1);
 }

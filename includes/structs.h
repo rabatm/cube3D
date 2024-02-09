@@ -6,16 +6,6 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-
-typedef struct s_img
-{
-    void	*mlx_img;
-    char	*addr;
-    int		bpp; /* bits per pixel */
-    int		line_len;
-    int		endian;
-}	t_img;
-
 /**
 	Structure pour stocker les couleurs RGB
 */
@@ -48,20 +38,27 @@ typedef struct s_game
 	int		flag;
 	char	**tab;
 	char	**config;
+	int		**int_map;
 	int		nb_lines;
 	int		max_line_len;
+	int		nb_cols;
+	int		nb_rows;
 	char	**matrix;
 	int		resolution_x;
 	int		resolution_y;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	// int		window_width;
-	// int		window_height;
+
+    void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
+    char	*addr;
+    int		bpp; /* bits per pixel */
+    int		line_len;
+    int		endian;
+
 	t_ctext	color_texture;
 	t_point	player;
 	t_point	direction;
 	t_point	plane;
-	t_img	img;
 }		t_game;
 
 

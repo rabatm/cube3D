@@ -1,7 +1,7 @@
-NO textures/matrix.xpm
-SO textures/matrix.xpm
-WE textures/matrix.xpm
-EA textures/matrix.xpm
+NO textures/wall_1.xpm
+SO textures/wall_2.xpm
+WE textures/wall_3.xpm
+EA textures/wall_4.xpm
 
 F 0,0,0
 C 0,0,0
@@ -27,4 +27,9 @@ C 0,0,0
 101010111011111111101
 1N1000001000000000001
 111111111111111111111
-
+111111101011111011101
+100000101000100010001
+101110101110101110111
+1010001111111100010101
+10101111     111111101
+11111111      1111111111111

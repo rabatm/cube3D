@@ -9,17 +9,20 @@
 # include <X11/Xutil.h>
 # include <X11/Xos.h>
 # include <X11/keysym.h>
+# include <X11/X.h>
 # include "../lib/libft/libft.h"
 # include "../lib/minilibx/mlx.h"
-# include "../lib/libft/libft.h"
 # include "structs.h"
 
 # define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 473
+# define WINDOW_HEIGHT 600
+# define BUFFER_SIZE 1024
+# define WALLS_MM_COLOR 0x8E8E8E
+# define PL_MM_COLOR 0x27CE06
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
 /*Fonctions de parsing*/
-void	read_file(char *file_path, t_game *game);
+void	read_file(t_game *game, char *filename);
 void	get_max_line_len(t_game *game);
 void	get_nb_lines(t_game *game);
 void	get_map_rectangular(t_game *game);
@@ -34,14 +37,17 @@ int		parse_color(char *line, t_ctext *color_texture);
 int		init_window(t_game *game);
 int		handle_escape(int keysym, t_game *game);
 int		close_everything(t_game *game);
-void	draw_sky_n_floor(t_game *game, t_ctext *color_texture);
+void	draw_sky_n_floor(t_game *game);
+void	my_pix_put(t_game *game, int x, int y, int color);
+void	draw_minimap(t_game *game);
 
 /* ft for barre*/
-void	draw_minimap(t_game *game);
 void	my_heal_bar(t_game *game);
 void	r_head(t_game *game);
-/*Fonctions de gestion du raycasting*/
 
+
+/*Fonctions de gestion du raycasting*/
+void	dup_matrix_into_int_map(t_game *game);
 
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);

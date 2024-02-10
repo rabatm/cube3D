@@ -21,8 +21,9 @@ void	free_ct_conf(t_game *game)
 	free_array(game->config);
 }
 
-/*Fonction qui free les tableaux sauf matrix + indique le message d'erreur correspondant*/
-void	free_errors_no_matrix(t_game *game, char *str)
+/*Fonction qui free les tableaux sauf matrix 
+indique le message d'erreur correspondant*/
+void	free_errors_mx(t_game *game, char *str)
 {
 	free_ct_conf(game);
 	free_array(game->tab);

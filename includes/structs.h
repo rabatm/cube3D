@@ -1,11 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 23:33:17 by mrabat            #+#    #+#             */
+/*   Updated: 2024/02/10 23:35:11 by mrabat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 /**
 	Contient les structures de données Cub3D
 */
-
 #ifndef STRUCTS_H
 # define STRUCTS_H
-
 /**
 	Structure pour stocker les couleurs RGB
 */
@@ -35,7 +44,6 @@ typedef struct s_ctext
 	int			color_floor;
 	int			color_ceiling;
 }		t_ctext;
-
 
 typedef struct s_game
 {
@@ -71,7 +79,7 @@ typedef struct s_game
 	int		map_y;
 	double	delta_distance_x;
 	double	delta_distance_y;
-	int		hit_wall; 
+	int		hit_wall;
 	double	side_dist_x;
 	double	side_dist_y;
 	int		step_x; /*nombre de pas en x*/
@@ -86,29 +94,23 @@ typedef struct s_game
 	double	texture_pos;
 	int		texture_x;
 	int		texture_y;
-
-
-    void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
-    char	*addr;
-    int		bpp; /* bits per pixel */
-    int		line_len;
-    int		endian;
-
+	void	*buffer;
+	char	*addr;
+	int		bpp; /* bits per pixel */
+	int		line_len;
+	int		endian;
 	t_ctext	color_texture;
 	t_point	player;
 }		t_game;
 
 typedef struct s_img
 {
-	void	*img; 
+	void	*img;
 	int		*data;
-
 	int		size_line;
 	int		bpp;
 	int		endian;
 	int		img_width;
 	int		img_height;
 }			t_img;
-
-
 #endif

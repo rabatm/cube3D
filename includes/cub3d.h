@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
+/*   Updated: 2024/02/10 23:36:30 by mrabat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 # include <stdio.h>
@@ -25,7 +37,6 @@
 # define TEXTURE_WIDTH 64
 # define TEXTURE_HEIGHT 64
 # define NB_TEXTURES 4
-
 # define RED 0xFF0000
 
 /*------------Liste des fonctions présentes dans le projet---------------*/
@@ -40,7 +51,6 @@ int		parse_texture(char *line, t_ctext *color_texture);
 void	parse_config(t_game *game);
 int		check_texture_color(char *line, t_ctext *color_texture);
 int		parse_color(char *line, t_ctext *color_texture);
-
 /*Fonctions de gestion des éléments graphiques*/
 int		init_window(t_game *game);
 int		close_everything(t_game *game);
@@ -49,17 +59,13 @@ void	draw_pixel(t_game *game, int i, int j, int color);
 void	draw_minimap(t_game *game);
 void	init_textures(t_game *game);
 void	texture_init(t_game *game);
-
 /* ft for barre*/
 void	my_heal_bar(t_game *game);
 void	r_head(t_game *game);
-
-
 /*Fonctions de gestion du raycasting*/
 void	dup_matrix_into_int_map(t_game *game);
 void	init_player(t_game *game);
 void	raycaster(t_game *game);
-
 /*Fonctions de gestion des mouvements*/
 void	update_player_movement(t_game *game);
 int		key_press(int keycode, t_game *game);
@@ -70,20 +76,17 @@ void	q_key(t_game *game);
 void	d_key(t_game *game);
 void	rotate_left_key(t_game *game);
 void	rotate_right_key(t_game *game);
-
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);
 void	free_ct_conf_error(t_game *game, char *msg);
 void	free_errors2(t_game *game, char *str);
-void	free_errors_no_matrix(t_game *game, char *str);
+void	free_errors_mx(t_game *game, char *str);
 void	free_all(t_game *game);
 void	free_ct_conf(t_game *game);
-
 /*Fonctions de gestion des erreurs*/
 void	ft_error(char *str);
 void	check_map(t_game *game);
 int		check_walls(t_game *game);
-
 /*
 FT UTILS
 */
@@ -94,5 +97,4 @@ FT pour la structure
 */
 void	ft_init_game(t_game *game);
 void	init_player_position(t_game *game);
-
 #endif

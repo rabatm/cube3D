@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:54:17 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:23:03 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie qu'il n'y a que des espaces,
@@ -17,7 +29,8 @@ static int	check_chars_in_map(t_game *game)
 				&& game->tab[i][j] != '1' && game->tab[i][j] != 'S' \
 				&& game->tab[i][j] != 'N' && game->tab[i][j] != 'W' \
 				&& game->tab[i][j] != 'E')
-				free_errors2(game, "Map contains invalid characters.");
+				free_errors2(game, "Map contains invalid characters. \
+					Valid characters are 1, 0, spaces, N, S, W, or E");
 			j++;
 		}
 	}
@@ -31,8 +44,7 @@ static int	check_player(t_game *game)
 	int	j;
 
 	i = -1;
-	game->player.x = 0;
-	game->player.y = 0;
+	init_player_position(game);
 	while (game->tab[++i])
 	{
 		j = 0;
@@ -45,6 +57,7 @@ static int	check_player(t_game *game)
 					free_errors2(game, "Only 1 player is allowed on the map.");
 				game->player.x = j;
 				game->player.y = i;
+				game->init_dir = game->tab[i][j];
 			}
 			j++;
 		}
@@ -60,7 +73,8 @@ void	check_map(t_game *game)
 	get_max_line_len(game);
 	get_nb_lines(game);
 	check_chars_in_map(game);
-	check_player(game);
 	get_map_rectangular(game);
+	check_player(game);
 	check_walls(game);
+	dup_matrix_into_int_map(game);
 }

@@ -5,7 +5,7 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
 
-NAME = cub3d
+NAME = cub3D
 MINILIBX = minilibx
 
 # Dossiers
@@ -34,15 +34,15 @@ OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 # Compilation générique des fichiers objets
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle par défaut
 all: $(NAME)
 
 # Règle de construction de l'exécutable
 $(NAME): $(LIBMINI) $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
-	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBMINI) $(MACFLY) -o $(NAME)
+	@echo "$(BLUE)$(NAME) READY $(DEF_COLOR)"
 
 # Règle de construction de la bibliothèque libft.a
 $(LIBFT):
@@ -58,12 +58,12 @@ clean:
 	@$(MAKE) clean -sC $(LIBFTDIR)
 	@$(MAKE) clean -sC $(LIBMINIDIR_ORIGIN)
 	@rm -rf $(OBJDIR)
-	@echo "$(BLUE)Object files cleaned!$(DEF_COLOR)"
+	@echo "$(BLUE)cleaned!$(DEF_COLOR)"
 
 # Règle de nettoyage complet
 fclean: clean
-	rm -f $(NAME)
-	@echo "$(RED)cleaned!$(DEF_COLOR)"
+	@rm -f $(NAME)
+	@echo "$(RED)cleaned !$(DEF_COLOR)"
 
 # Règle de recompilation complète
 re: fclean all

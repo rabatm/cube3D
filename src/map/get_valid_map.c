@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_valid_map.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:58:31 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:00:00 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui récupère seulement la map du fichier de config
@@ -38,7 +50,7 @@ void	get_map_rectangular(t_game *game)
 	int	j;
 
 	if (game->nb_lines < 3 || game->max_line_len < 3)
-		free_errors2(game, "Map is too small.");
+		free_errors_no_matrix(game, "Map is too small : at least 3 lines or 3 cols");
 	game->matrix = malloc(sizeof(char *) * (game->nb_lines + 1));
 	game->matrix[game->nb_lines] = NULL;
 	i = -1;
@@ -57,6 +69,36 @@ void	get_map_rectangular(t_game *game)
 		while (game->tab[i][++j])
 		{
 			game->matrix[i][j] = game->tab[i][j];
+		}
+	}
+}
+
+/*Fonction qui duplique la matrice dans un tableau d'int ** 
+// et échange les coordonnées i et j pour la gestion graphique i = y, j = x */
+void	dup_matrix_into_int_map(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	game->int_map = (int **)malloc(sizeof(int *) * (game->nb_cols));
+	while (++i < game->nb_cols)
+		game->int_map[i] = (int *)malloc((sizeof(int) * (game->nb_rows)));
+	i = -1;
+	while (++i < game->nb_rows)
+	{
+		j = -1;
+		while (++j < game->nb_cols)
+		{
+			if (game->matrix[i][j] == '1')
+				game->int_map[game->nb_cols - 1 - j][i] = 1;
+			else if (game->matrix[i][j] == '0')
+				game->int_map[game->nb_cols - 1 - j][i] = 0;
+			else if (game->matrix[i][j] == 'N' || game->matrix[i][j] == 'S' \
+					|| game->matrix[i][j] == 'W' || game->matrix[i][j] == 'E')
+				game->int_map[game->nb_cols - 1 - j][i] = 0;
+			else
+				game->int_map[game->nb_cols - 1 - j][i] = 9;
 		}
 	}
 }

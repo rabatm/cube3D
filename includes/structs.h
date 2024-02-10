@@ -9,16 +9,21 @@
 /**
 	Structure pour stocker les couleurs RGB
 */
-typedef struct s_color {
-	int r;
-	int g;
-	int b;
-} t_color;
+typedef struct s_color
+{
+	int		r;
+	int		g;
+	int		b;
+}			t_color;
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
 }				t_point;
 
 typedef struct s_ctext
@@ -29,7 +34,7 @@ typedef struct s_ctext
 	char		*texture_west;
 	int			color_floor;
 	int			color_ceiling;
-} t_ctext;
+}		t_ctext;
 
 
 typedef struct s_game
@@ -37,58 +42,73 @@ typedef struct s_game
 	int		flag;
 	char	**tab;
 	char	**config;
+	int		**int_map;
 	int		nb_lines;
 	int		max_line_len;
+	int		nb_cols;
+	int		nb_rows;
 	char	**matrix;
-	int			resolution_x;
-	int			resolution_y;
+	int		resolution_x;
+	int		resolution_y;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	char	init_dir;
+	double	plane_x;
+	double	plane_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		mov_x;
+	int		mov_y;
+	int		rotate_x;
+	int		rotate_y;
+	int		left_straf;
+	int		right_straf;
+	float	speed;
+	float	rot;
+	int		**textures;
+	int		map_x;
+	int		map_y;
+	double	delta_distance_x;
+	double	delta_distance_y;
+	int		hit_wall; 
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x; /*nombre de pas en x*/
+	int		step_y; /*nombre de pas en y*/
+	int		which_side; /*de quel cote on se trouve*/
+	double	perpendicular_wall_dist; /*evite l effet oeil de boeuf*/
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		texture_number;
+	double	wall_x;
+	double	texture_pos;
+	int		texture_x;
+	int		texture_y;
+
+
+    void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
+    char	*addr;
+    int		bpp; /* bits per pixel */
+    int		line_len;
+    int		endian;
+
 	t_ctext	color_texture;
 	t_point	player;
-
-	/*Variables dont on pourrait avoir besoin dans le projet*/
-
-	// void    *mlx;
-	// void    *win;
-	// int     width;
-	// int     height;
-	// int     map_width;
-	// int     map_height;
-	// int     tile_size;
-	// int     player_x;
-	// int     player_y;
-	// int     player_size;
-	// int     player_turn_direction;
-	// int     player_walk_direction;
-	// int     player_side_direction;
-	// int     player_rotation_angle;
-	// int     walk_speed;
-	// int     turn_speed;
 }		t_game;
-
-
-/*Structure dont on pourrait avoir besoin dans le projet*/
-// typedef struct s_ray
-// {
-//     float   ray_angle;
-//     float   wall_hit_x;
-//     float   wall_hit_y;
-//     float   distance;
-//     int     was_hit_vertical;
-//     int     is_ray_facing_up;
-//     int     is_ray_facing_down;
-//     int     is_ray_facing_left;
-//     int     is_ray_facing_right;
-//     int     wall_hit_content;
-// }               t_ray;
 
 typedef struct s_img
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
+	void	*img; 
+	int		*data;
+
+	int		size_line;
+	int		bpp;
 	int		endian;
-}				t_img;
+	int		img_width;
+	int		img_height;
+}			t_img;
 
 
 #endif

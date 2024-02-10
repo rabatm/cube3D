@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:53:37 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:54:02 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 	fichier parser.c
 	ce fichier contient les fonctions qui gèrent le parsing des fichiers
@@ -11,6 +23,8 @@
 // et les envoies aux fonctions de traitement
 int	parse_line(char *line, t_ctext *color_texture)
 {
+	if (!line)
+		return (-2);
 	if (line[0] == 'N' && line[1] == 'O')
 		return (parse_texture(line, color_texture));
 	else if (line[0] == 'S' && line[1] == 'O')
@@ -39,7 +53,7 @@ void	parse_config(t_game *game)
 	{
 		ret = parse_line(game->config[i++], &(game->color_texture));
 		if (ret == 0)
-			free_ct_conf_error(game, "Invalid line in file\n");
+			free_ct_conf_error(game, "Invalid line in configuration file.\n");
 		if (ret == -2)
 			break ;
 	}
@@ -49,5 +63,5 @@ void	parse_config(t_game *game)
 		|| game->color_texture.texture_west == NULL
 		|| game->color_texture.color_floor == -1
 		|| game->color_texture.color_ceiling == -1)
-		free_ct_conf_error(game, "Information missing in confFile \n");
+		free_ct_conf_error(game, "Information missing in conf file.\n");
 }

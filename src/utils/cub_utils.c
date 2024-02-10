@@ -67,8 +67,18 @@ void	display_struct_values(t_game *game)
 	// ft_printf("Nb rows = %d\n", game->nb_rows);
 	// ft_printf("F color = %d\n", game->color_texture.color_floor);
 	// ft_printf("C color = %d\n", game->color_texture.color_ceiling);
-	printf("\nPlayer x pos = %lf\n", game->player.pos_x);
-	printf("Player y pos = %lf\n", game->player.pos_y);
+	// ft_printf("NORTH TEXTURE = %s\n", game->color_texture.texture_north);
+	// ft_printf("SOUTH TEXTURE = %s\n", game->color_texture.texture_south);
+	// ft_printf("WEST TEXTURE = %s\n", game->color_texture.texture_west);
+	// ft_printf("EAST TEXTURE = %s\n", game->color_texture.texture_east);
+	// i = -1;
+
+	// while (++i < 64 * 64)
+	// {
+	// 	ft_printf("texture north = %d\n", game->textures[0][i]);
+	// }
+	// printf("\nPlayer x pos = %lf\n", game->player.pos_x);
+	// printf("Player y pos = %lf\n", game->player.pos_y);
 	// ft_printf("\nNb colls = %d\n", game->nb_colls);
 	// i = -1;
 	// ft_printf("\n   Collectibles:   \n");

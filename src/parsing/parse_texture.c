@@ -62,13 +62,13 @@ int	parse_texture(char *line, t_ctext *color_texture)
 	if (check_file_extension_and_existence(tmp) == 0)
 		return (0);
 	if (line[0] == 'N' && line[1] == 'O')
-		color_texture->texture_north = tmp;
+		color_texture->texture_north = ft_strdup(tmp);
 	else if (line[0] == 'S' && line[1] == 'O')
-		color_texture->texture_south = tmp;
+		color_texture->texture_south = ft_strdup(tmp);
 	else if (line[0] == 'W' && line[1] == 'E')
-		color_texture->texture_west = tmp;
+		color_texture->texture_west = ft_strdup(tmp);
 	else if (line[0] == 'E' && line[1] == 'A')
-		color_texture->texture_east = tmp;
+		color_texture->texture_east = ft_strdup(tmp);
 	free(tmp);
 	return (1);
 }

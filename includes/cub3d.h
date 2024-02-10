@@ -22,6 +22,9 @@
 # define MM_ZOOM 0.01
 # define SPEED 0.05
 # define ROTATION_SPEED 0.04
+# define TEXTURE_WIDTH 64
+# define TEXTURE_HEIGHT 64
+# define NB_TEXTURES 4
 
 # define RED 0xFF0000
 
@@ -46,6 +49,7 @@ void	draw_sky_n_floor(t_game *game);
 void	my_pix_put(t_game *game, int x, int y, int color);
 void	draw_pixel(t_game *game, int i, int j, int color);
 void	draw_minimap(t_game *game);
+void	init_textures(t_game *game);
 
 /* ft for barre*/
 void	my_heal_bar(t_game *game);

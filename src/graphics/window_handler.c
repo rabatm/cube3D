@@ -48,6 +48,7 @@ int	init_window(t_game *game)
 		free(game->win_ptr);
 		return (1);
 	}
+	init_textures(game);
 	// my_heal_bar(game);
 	game->buffer = mlx_new_image(game->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	game->addr = mlx_get_data_addr(game->buffer, &game->bpp, &game->line_len, &game->endian);

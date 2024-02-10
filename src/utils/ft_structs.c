@@ -26,5 +26,9 @@ void	ft_init_game(t_game *game)
 	game->speed = SPEED;
 	game->mov_x = 0;
 	game->mov_y = 0;
+	game->rotate_x = 0;
+	game->rotate_y = 0;
+	game->left_straf = 0;
+	game->right_straf = 0;
 	game->rot = ROTATION_SPEED;
 }

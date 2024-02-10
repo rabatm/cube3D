@@ -66,6 +66,7 @@ typedef struct s_game
 	int		right_straf;
 	float	speed;
 	float	rot;
+	int		**textures;
 
     void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
     char	*addr;
@@ -76,5 +77,18 @@ typedef struct s_game
 	t_ctext	color_texture;
 	t_point	player;
 }		t_game;
+
+typedef struct s_img
+{
+	void	*img; 
+	int		*data;
+
+	int		size_line;
+	int		bpp;
+	int		endian;
+	int		img_width;
+	int		img_height;
+}			t_img;
+
 
 #endif

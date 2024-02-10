@@ -77,8 +77,8 @@ void	rotate_right_key(t_game *game);
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);
 void	free_ct_conf_error(t_game *game, char *msg);
-void	free_errors(t_game *game);
 void	free_errors2(t_game *game, char *str);
+void	free_errors_no_matrix(t_game *game, char *str);
 void	free_all(t_game *game);
 void	free_ct_conf(t_game *game);
 

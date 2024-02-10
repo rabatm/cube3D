@@ -75,5 +75,11 @@ void	read_file(t_game *game, char *filename)
 		exit(EXIT_FAILURE);
 	while (game->config[i])
 		i++;
+	if (i <= 6)
+	{
+		ft_free_char_array(game->config);
+		ft_error("Invalid configuration file.\n");
+		exit(0);
+	}
 	game->max_line_len = i;
 }

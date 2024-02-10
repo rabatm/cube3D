@@ -23,6 +23,8 @@
 // et les envoies aux fonctions de traitement
 int	parse_line(char *line, t_ctext *color_texture)
 {
+	if (!line)
+		return (-2);
 	if (line[0] == 'N' && line[1] == 'O')
 		return (parse_texture(line, color_texture));
 	else if (line[0] == 'S' && line[1] == 'O')

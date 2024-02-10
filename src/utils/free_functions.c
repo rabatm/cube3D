@@ -18,31 +18,23 @@ void	free_ct_conf(t_game *game)
 	free(game->color_texture.texture_south);
 	free(game->color_texture.texture_west);
 	free(game->color_texture.texture_east);
+	free_array(game->config);
 }
 
-/*Fonction qui free les tableaux précédemment malloc en cas d'erreur*/
-void	free_errors(t_game *game)
+/*Fonction qui free les tableaux sauf matrix + indique le message d'erreur correspondant*/
+void	free_errors_no_matrix(t_game *game, char *str)
 {
-	int	i;
-
-	i = -1;
-	while (game->tab[++i])
-		free(game->tab[i]);
-	free(game->tab);
-	i = -1;
-	while (game->config[++i])
-		free(game->config[i]);
-	free(game->config);
-	i = -1;
-	while (game->matrix[++i])
-		free(game->matrix[i]);
-	free(game->matrix);
+	free_ct_conf(game);
+	free_array(game->tab);
+	ft_error(str);
 }
 
 /*Fonction qui free les tableaux + indique le message d'erreur correspondant*/
 void	free_errors2(t_game *game, char *str)
 {
-	free_errors(game);
+	free_ct_conf(game);
+	free_array(game->tab);
+	free_array(game->matrix);
 	ft_error(str);
 }
 

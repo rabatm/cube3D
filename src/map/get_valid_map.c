@@ -80,14 +80,14 @@ void dup_matrix_into_int_map(t_game *game)
 		while (++j < game->nb_cols)
 		{
 			if (game->matrix[i][j] == '1')
-				game->int_map[j][i] = 1;
+				game->int_map[game->nb_cols - 1 - j][i] = 1;
 			else if (game->matrix[i][j] == '0')
-				game->int_map[j][i] = 0;
+				game->int_map[game->nb_cols - 1 - j][i] = 0;
 			else if (game->matrix[i][j] == 'N' || game->matrix[i][j] == 'S' \
 					|| game->matrix[i][j] == 'W' || game->matrix[i][j] == 'E')
-				game->int_map[j][i] = 0;
+				game->int_map[game->nb_cols - 1 - j][i] = 0;
 			else
-				game->int_map[j][i] = 9;
+				game->int_map[game->nb_cols - 1 - j][i] = 9;
 		}
 	}
 }

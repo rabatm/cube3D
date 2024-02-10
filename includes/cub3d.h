@@ -19,7 +19,9 @@
 # define BUFFER_SIZE 1024
 # define WALLS_MM_COLOR 0x8E8E8E
 # define PL_MM_COLOR 0x27CE06
-# define MM_ZOOM 0.04
+# define MM_ZOOM 0.01
+# define SPEED 0.05
+# define ROTATION_SPEED 0.04
 
 # define RED 0xFF0000
 
@@ -54,6 +56,18 @@ void	r_head(t_game *game);
 void	dup_matrix_into_int_map(t_game *game);
 void	init_player(t_game *game);
 void	draw_ray(t_game *game);
+void	raycaster(t_game *game);
+
+/*Fonctions de gestion des mouvements*/
+void	update_player_movement(t_game *game);
+int		key_press(int keycode, t_game *game);
+int		key_release(int keycode, t_game *game);
+void	z_key(t_game *game);
+void	s_key(t_game *game);
+void	q_key(t_game *game);
+void	d_key(t_game *game);
+void	rotate_left_key(t_game *game);
+void	rotate_right_key(t_game *game);
 
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);

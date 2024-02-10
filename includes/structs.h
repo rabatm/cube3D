@@ -53,6 +53,19 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	init_dir;
+	double	plane_x;
+	double	plane_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		mov_x;
+	int		mov_y;
+	int		rotate_x;
+	int		rotate_y;
+	int		left_straf;
+	int		right_straf;
+	float	speed;
+	float	rot;
 
     void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
     char	*addr;
@@ -63,23 +76,5 @@ typedef struct s_game
 	t_ctext	color_texture;
 	t_point	player;
 }		t_game;
-
-
-/*Structure dont on pourrait avoir besoin dans le projet*/
-// typedef struct s_ray
-// {
-//     float   ray_angle;
-//     float   wall_hit_x;
-//     float   wall_hit_y;
-//     float   distance;
-//     int     was_hit_vertical;
-//     int     is_ray_facing_up;
-//     int     is_ray_facing_down;
-//     int     is_ray_facing_left;
-//     int     is_ray_facing_right;
-//     int     wall_hit_content;
-// }               t_ray;
-
-
 
 #endif

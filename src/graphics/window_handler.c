@@ -24,11 +24,11 @@ void	draw_sky_n_floor(t_game *game)
 
 int	render(t_game *game)
 {
-	if (game->win_ptr == NULL)
-		return (1);
+	update_player_movement(game);
 	draw_sky_n_floor(game);
+	// draw_ray(game);
+	raycaster(game);
 	draw_minimap(game);
-	draw_ray(game);
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->buffer, 0, 0);
 	// r_head(game);
 	//my_heal_bar(game);
@@ -52,7 +52,8 @@ int	init_window(t_game *game)
 	game->buffer = mlx_new_image(game->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	game->addr = mlx_get_data_addr(game->buffer, &game->bpp, &game->line_len, &game->endian);
 	//gestion de la touches ESC pour fermer la fenetre
-	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, &handle_escape, game);
+	mlx_hook(game->win_ptr, KeyPress, 1, &key_press, game);
+	mlx_hook(game->win_ptr, KeyRelease, 10, &key_release, game);
 	mlx_loop_hook(game->mlx_ptr, &render, game);
 	//gestion de la fermeture de la fenetre avec la croix
 	mlx_hook(game->win_ptr, 17, 1L << 0, &close_everything, game);

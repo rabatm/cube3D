@@ -67,8 +67,8 @@ void	display_struct_values(t_game *game)
 	// ft_printf("Nb rows = %d\n", game->nb_rows);
 	// ft_printf("F color = %d\n", game->color_texture.color_floor);
 	// ft_printf("C color = %d\n", game->color_texture.color_ceiling);
-	// ft_printf("\nPlayer x pos = %d\n", game->player.x);
-	// ft_printf("Player y pos = %d\n", game->player.y);
+	printf("\nPlayer x pos = %lf\n", game->player.pos_x);
+	printf("Player y pos = %lf\n", game->player.pos_y);
 	// ft_printf("\nNb colls = %d\n", game->nb_colls);
 	// i = -1;
 	// ft_printf("\n   Collectibles:   \n");
@@ -89,11 +89,11 @@ void	display_struct_values(t_game *game)
 	i = -1;
 	int j;
 	ft_printf("\n  ------------------------- Map after became int:--------------	\n");
-	while (++i < game->nb_rows)
+	while (++i < game->nb_cols)
 	{
 		j = -1;
-		while (++j < game->nb_cols)
-			ft_printf("%d", game->int_map[j][i]);
+		while (++j < game->nb_rows)
+			ft_printf("%d", game->int_map[i][j]);
 		ft_printf("\n");
 	}
 	ft_printf("\n");

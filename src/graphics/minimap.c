@@ -1,5 +1,30 @@
 #include "../../includes/cub3d.h"
 
+/*Fonction qui dessine les rayons sur la minimap*/
+void	draw_minimap_ray(t_game *game)
+{
+	double	p_pos_x;
+	double	p_pos_y;
+	double mm_max_x;
+	double mm_max_y;
+	int i = -1;
+
+	p_pos_x = (double)game->player.pos_x * (WINDOW_HEIGHT * MM_ZOOM) + 5;
+	p_pos_y = (double)game->player.pos_y * (WINDOW_HEIGHT * MM_ZOOM) + 5;
+	mm_max_y = (game->nb_rows * (WINDOW_HEIGHT * MM_ZOOM) + 5);
+	mm_max_x = (game->nb_cols * (WINDOW_HEIGHT * MM_ZOOM) + 5);
+	// printf("max y = %lf\n", mm_max_y);
+	my_pix_put(game, p_pos_x, p_pos_y, RED);
+	while (++i < mm_max_y - p_pos_y || i < mm_max_x - p_pos_x || p_pos_x + i > 5 || p_pos_y + i > 5)
+	{
+		if (game->int_map[(int)((p_pos_x - 5) / 24)][(int)((p_pos_y + i - 5) / 24)])
+			break ;
+		my_pix_put(game, p_pos_x, p_pos_y + i, RED);
+		// printf("valeur pos x = %d, pos y + i = %d\n", (((int)(p_pos_x - 5) / 24)), ((int)(p_pos_y + i - 5) / 24));
+		// printf("valeur de int map de ces coordonnees = %d\n", game->int_map[(int)((p_pos_x - 5) / 24)][(int)((p_pos_y + i - 5) / 24)]);
+	}
+}
+
 /*Fonction qui dessine chaque pixel*/
 void draw_pixel(t_game *game, int i, int j, int color)
 {
@@ -32,59 +57,12 @@ void draw_minimap(t_game *game)
 		j = 0;
 		while (j < game->nb_rows)
 		{
-			if (game->int_map[i][j])
+			if (game->int_map[game->nb_cols - 1 - i][j])
 				draw_pixel(game, j, i, WALLS_MM_COLOR);
 			j++;
 		}
 		i++;
 	}
-	draw_pixel(game, game->player.y, game->player.x, PL_MM_COLOR);
+	draw_pixel(game, game->player.pos_y, game->nb_cols - game->player.pos_x, PL_MM_COLOR);
 }
 
-/*Fonction qui affiche la minimap vesion Martin*/
-// void draw_minimap(t_game *game)
-// {
-//     int i = 0;
-//     int j = 0;
-//     int x_offset = 110; // Décalage horizontal
-//     int y_offset = 200; // Décalage vertical
-//     int target_width = 150; // Largeur cible
-//     int target_height = 63; // Hauteur cible
-//     double x_scale = (double)target_width / (game->max_line_len / 2);
-//     double y_scale = (double)target_height / (game->nb_lines / 2);
-
-//     while (i < game->nb_lines && i < target_height)
-//     {
-//         j = 0;
-//         while (j < game->max_line_len && j < target_width)
-//         {
-//             if (game->tab[i][j] == '1')
-//             {
-//                 // Dessiner deux points "M" pour chaque pixel correspondant
-//                 mlx_pixel_put(game->mlx_ptr, game->win_ptr, (int)(j * x_scale) + x_offset, (int)(i * y_scale) + y_offset, 0x00C0C0C0);
-//                 mlx_pixel_put(game->mlx_ptr, game->win_ptr, (int)(j * x_scale) + x_offset + 1, (int)(i * y_scale) + y_offset, 0x00C0C0C0);
-
-//                 // Dessiner un trait horizontal plus épais
-//                 if (j > 0 && game->tab[i][j - 1] == '1')
-//                 {
-//                     int x1 = (int)(j * x_scale) + x_offset;
-//                     int x2 = (int)((j + 1) * x_scale) + x_offset;
-//                     int y = (int)(i * y_scale) + y_offset;
-//                     for (int k = x1; k <= x2; k++)
-//                     {
-//                         mlx_pixel_put(game->mlx_ptr, game->win_ptr, k, y, 0x00C0C0C0);
-//                     }
-//                 }
-//             }
-//             else if (game->tab[i][j] == '0')
-//             {
-//                 // Dessiner deux points "M" pour chaque pixel correspondant
-//                 mlx_pixel_put(game->mlx_ptr, game->win_ptr, (int)(j * x_scale) + x_offset, (int)(i * y_scale) + y_offset, 0x000000FF);
-//                 mlx_pixel_put(game->mlx_ptr, game->win_ptr, (int)(j * x_scale) + x_offset + 1, (int)(i * y_scale) + y_offset, 0x000000FF);
-//             }
-
-//             j++;
-//         }
-//         i++;
-//     }
-// }

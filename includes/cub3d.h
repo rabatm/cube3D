@@ -98,5 +98,6 @@ void	check_file_extension(char *str, char *ext);
 FT pour la structure
 */
 void	ft_init_game(t_game *game);
+void	init_player_position(t_game *game);
 
 #endif

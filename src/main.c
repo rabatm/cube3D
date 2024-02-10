@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 21:00:59 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:26:16 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 /**
@@ -13,23 +25,15 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		ft_init_game(&game);
-		/*fonction qui lit le fichier*/
 		read_file(&game, argv[1]);
-		/*fonction pour parser la config*/
 		parse_config(&game);
-		/*fonction qui extrait la map du fichier de config*/
 		get_map_from_config(&game);
-		/*fonction qui verifie que la map est OK*/
 		check_map(&game);
 	}
 	else
-		ft_error("You must have 2 arguments.");
-	/*fonction de debug*/
+		ft_error("You must have 2 arguments. Run ./cub3d with a conf file.");
 	init_player(&game);
-	// display_struct_values(&game);
 	init_window(&game);
-	/*fonction qui free tous éléments malloc*/
 	free_all(&game);
 	return (0);
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:48:42 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:48:44 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 void	free_ct_conf(t_game *game)
@@ -11,7 +23,7 @@ void	free_ct_conf(t_game *game)
 /*Fonction qui free les tableaux précédemment malloc en cas d'erreur*/
 void	free_errors(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (game->tab[++i])
@@ -37,9 +49,9 @@ void	free_errors2(t_game *game, char *str)
 /*Fonction qui free tout en fin de programme*/
 void	free_all(t_game *game)
 {
-	free_ct_conf(game);
 	int	i;
 
+	free_ct_conf(game);
 	i = -1;
 	while (game->tab[++i])
 		free(game->tab[i]);

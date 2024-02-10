@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_structs.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:45:18 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:22:18 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 Fichier qui contient les fonctions d'initiationsation et de supresion
 */
@@ -30,4 +42,10 @@ void	ft_init_game(t_game *game)
 	game->left_straf = 0;
 	game->right_straf = 0;
 	game->rot = ROTATION_SPEED;
+}
+
+void	init_player_position(t_game *game)
+{
+	game->player.x = 0;
+	game->player.y = 0;
 }

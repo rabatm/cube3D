@@ -1,14 +1,15 @@
-EA ../files/east_texture
+EA textures/wall_1.xpm
+
+
+SO textures/wall_2.xpm
+
+
+WE textures/wall_3.xpm
+
+NO textures/wall_4.xpm
 
 F 220,100,0
-
-SO ../files/south_texture
-
 C 225,30,0
-
-WE ../files/west_texture
-
-NO ../files/north_texture
 
      111111111
     1000S00001

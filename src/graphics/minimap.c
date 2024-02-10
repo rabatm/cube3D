@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 21:10:01 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:11:18 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui dessine chaque pixel de la minimap zoomee*/
-void draw_pixel(t_game *game, int i, int j, int color)
+void	draw_pixel(t_game *game, int i, int j, int color)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	x = 0;
 	y = 0;
@@ -20,11 +32,12 @@ void draw_pixel(t_game *game, int i, int j, int color)
 		y++;
 	}
 }
+
 /*Fonction qui dessine la minimap à partir de la map d'int*/
-void draw_minimap(t_game *game)
+void	draw_minimap(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < game->nb_cols)
@@ -38,6 +51,6 @@ void draw_minimap(t_game *game)
 		}
 		i++;
 	}
-	draw_pixel(game, game->player.pos_y, game->nb_cols - game->player.pos_x, PL_MM_COLOR);
+	draw_pixel(game, game->player.pos_y, game->nb_cols - game->player.pos_x, \
+		PL_MM_COLOR);
 }
-

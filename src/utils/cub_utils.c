@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:45:51 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:46:47 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui affiche le message d'erreur
@@ -97,7 +109,7 @@ Sert principalement pour débugger*/
 	// 	ft_printf("%s\n", game->matrix[i]);
 	// i = -1;
 	// int j;
-	// ft_printf("\n  ------------------------- Map after became int:--------------	\n");
+	// ft_printf("\n --- Map after became int:-\n");
 	// while (++i < game->nb_cols)
 	// {
 	// 	j = -1;

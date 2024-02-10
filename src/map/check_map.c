@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:54:17 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:23:03 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie qu'il n'y a que des espaces,
@@ -32,8 +44,7 @@ static int	check_player(t_game *game)
 	int	j;
 
 	i = -1;
-	game->player.x = 0;
-	game->player.y = 0;
+	init_player_position(game);
 	while (game->tab[++i])
 	{
 		j = 0;
@@ -65,6 +76,5 @@ void	check_map(t_game *game)
 	get_map_rectangular(game);
 	check_player(game);
 	check_walls(game);
-	/*fonction qui transforme la map de chars en map d int*/
 	dup_matrix_into_int_map(game);
 }

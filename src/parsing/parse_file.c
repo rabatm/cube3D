@@ -1,27 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_file.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:51:43 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:25:24 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie si l'extension de fichier est valide*/
 void	check_file_extension(char *str, char *ext)
 {
 	if (ft_strncmp(&str[ft_strlen(str) - 4], ext, 4))
-		ft_error("Invalid configuration file extension. You must have a \
-			configuration file with .cub extension");
+		ft_error("Invalid configuration file extension.");
 }
 
-static char *ft_open_x_2(char *str, int fd)
+static char	*ft_open_x_2(char *str, int fd)
 {
 	if (close(fd) == -1)
 		return (NULL);
 	return (str);
 }
 
-static char *ft_readfile(char *filename)
+static char	*ft_readfile(char *filename)
 {
-	int fd;
-	int ret;
-	int len_total;
-	char buf[BUFFER_SIZE];
-	char *str;
+	int		fd;
+	int		ret;
+	int		len_total;
+	char	buf[BUFFER_SIZE];
+	char	*str;
 
 	len_total = 0;
 	ret = BUFFER_SIZE;
@@ -44,10 +55,10 @@ static char *ft_readfile(char *filename)
 	return (ft_open_x_2(str, fd));
 }
 
-void read_file(t_game *game, char *filename)
+void	read_file(t_game *game, char *filename)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
 	check_file_extension(filename, ".cub");

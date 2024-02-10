@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:53:37 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:54:02 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 	fichier parser.c
 	ce fichier contient les fonctions qui gèrent le parsing des fichiers
@@ -49,5 +61,5 @@ void	parse_config(t_game *game)
 		|| game->color_texture.texture_west == NULL
 		|| game->color_texture.color_floor == -1
 		|| game->color_texture.color_ceiling == -1)
-		free_ct_conf_error(game, "Information missing in configuration file.\n");
+		free_ct_conf_error(game, "Information missing in conf file.\n");
 }

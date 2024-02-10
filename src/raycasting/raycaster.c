@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycaster.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:43:02 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:50:57 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui calcule les directions des rayons*/
@@ -114,13 +126,12 @@ void	calculate_texture_coord_n_draw_texture(t_game *game, int *x)
 /*Fonction prinicpale du raycasting*/
 void	raycaster(t_game *game)
 {
-	int x; 
+	int	x;
 
-	x= -1;
+	x = -1;
 	while (++x < WINDOW_WIDTH)
 	{
-		//calculate ray position and direction
-		game->camera_x = 2 * x / (double)WINDOW_WIDTH - 1; //x-coordinate in camera space
+		game->camera_x = 2 * x / (double)WINDOW_WIDTH - 1;
 		game->ray_dir_x = game->player.dir_x + game->plane_x * game->camera_x;
 		game->ray_dir_y = game->player.dir_y + game->plane_y * game->camera_x;
 		game->map_x = (int)(game->player.pos_x);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map_walls.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:55:16 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 20:58:10 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui vérifie qu'il y a que des 1 sur les contours de la map*/
@@ -15,14 +27,14 @@ static int	check_outline(t_game *game)
 			if (i == 0 || i == game->nb_lines - 1)
 			{
 				if (game->matrix[i][j] == '0')
-					free_errors2(game, "Map is not surrounded by walls on first or last line.");
+					free_errors2(game, "There isnt wall on 1st or last line.");
 			}
 			else
 			{
 				if (j == 0 || j == game->max_line_len - 1)
 				{
 					if (game->matrix[i][j] == '0')
-						free_errors2(game, "Map is not surrounded by walls on first or last col.");
+						free_errors2(game, "No wall on 1st or last col.");
 				}
 			}
 		}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_valid_map.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 20:58:31 by orauline          #+#    #+#             */
+/*   Updated: 2024/02/10 21:00:00 by orauline         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 /*Fonction qui récupère seulement la map du fichier de config
@@ -30,7 +42,6 @@ void	get_map_from_config(t_game *game)
 	}
 }
 
-
 /*Fonction qui remplit la map d'espaces afin de
 // simplifier les vérifications utlérieures de la map*/
 void	get_map_rectangular(t_game *game)
@@ -39,7 +50,7 @@ void	get_map_rectangular(t_game *game)
 	int	j;
 
 	if (game->nb_lines < 3 || game->max_line_len < 3)
-		free_errors2(game, "Map is too small. It must have at least 3 lines or 3 cols");
+		free_errors2(game, "Map is too small : at least 3 lines or 3 cols");
 	game->matrix = malloc(sizeof(char *) * (game->nb_lines + 1));
 	game->matrix[game->nb_lines] = NULL;
 	i = -1;
@@ -64,10 +75,10 @@ void	get_map_rectangular(t_game *game)
 
 /*Fonction qui duplique la matrice dans un tableau d'int ** 
 // et échange les coordonnées i et j pour la gestion graphique i = y, j = x */
-void dup_matrix_into_int_map(t_game *game)
+void	dup_matrix_into_int_map(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	game->int_map = (int **)malloc(sizeof(int *) * (game->nb_cols));

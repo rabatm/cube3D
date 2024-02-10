@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		ft_error("You must have 2 arguments.");
 	/*fonction de debug*/
 	init_player(&game);
-	display_struct_values(&game);
+	// display_struct_values(&game);
 	init_window(&game);
 	/*fonction qui free tous éléments malloc*/
 	free_all(&game);

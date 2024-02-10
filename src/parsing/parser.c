@@ -39,7 +39,7 @@ void	parse_config(t_game *game)
 	{
 		ret = parse_line(game->config[i++], &(game->color_texture));
 		if (ret == 0)
-			free_ct_conf_error(game, "Invalid line in file\n");
+			free_ct_conf_error(game, "Invalid line in configuration file.\n");
 		if (ret == -2)
 			break ;
 	}
@@ -49,5 +49,5 @@ void	parse_config(t_game *game)
 		|| game->color_texture.texture_west == NULL
 		|| game->color_texture.color_floor == -1
 		|| game->color_texture.color_ceiling == -1)
-		free_ct_conf_error(game, "Information missing in configuration File \n");
+		free_ct_conf_error(game, "Information missing in configuration file.\n");
 }

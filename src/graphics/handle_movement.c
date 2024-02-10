@@ -1,5 +1,6 @@
 #include "../../includes/cub3d.h"
 
+/*Fonction qui gere les mouvements du player*/
 void	update_player_movement(t_game *game)
 {
 	if (game->mov_x == 1)
@@ -15,7 +16,7 @@ void	update_player_movement(t_game *game)
 	if (game->rotate_y == 1)
 		rotate_right_key(game);
 }
-
+/*Fonction qui gere quand on presse des touches*/
 int key_press(int keycode, t_game *game)
 {
 	if (keycode == XK_w || keycode == XK_Up)
@@ -34,7 +35,7 @@ int key_press(int keycode, t_game *game)
 		close_everything(game);
 	return (0);
 }
-
+/*Fonction qui gere le relachement des touches*/
 int key_release(int keycode, t_game *game)
 {
 	if (keycode == XK_w || keycode == XK_Up)

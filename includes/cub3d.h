@@ -14,8 +14,8 @@
 # include "../lib/minilibx/mlx.h"
 # include "structs.h"
 
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
+# define WINDOW_WIDTH 1024
+# define WINDOW_HEIGHT 768
 # define BUFFER_SIZE 1024
 # define WALLS_MM_COLOR 0x8E8E8E
 # define PL_MM_COLOR 0x27CE06
@@ -50,6 +50,7 @@ void	my_pix_put(t_game *game, int x, int y, int color);
 void	draw_pixel(t_game *game, int i, int j, int color);
 void	draw_minimap(t_game *game);
 void	init_textures(t_game *game);
+void	texture_init(t_game *game);
 
 /* ft for barre*/
 void	my_heal_bar(t_game *game);

@@ -67,6 +67,26 @@ typedef struct s_game
 	float	speed;
 	float	rot;
 	int		**textures;
+	int		map_x;
+	int		map_y;
+	double	delta_distance_x;
+	double	delta_distance_y;
+	int		hit_wall; 
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x; /*nombre de pas en x*/
+	int		step_y; /*nombre de pas en y*/
+	int		which_side; /*de quel cote on se trouve*/
+	double	perpendicular_wall_dist; /*evite l effet oeil de boeuf*/
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		texture_number;
+	double	wall_x;
+	double	texture_pos;
+	int		texture_x;
+	int		texture_y;
+
 
     void	*buffer; //emplacement en memoire sur lequel on construit l image qu on va afficher
     char	*addr;

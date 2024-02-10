@@ -1,5 +1,6 @@
 #include "../../includes/cub3d.h"
 
+/*Fonction qui initialise l'orientation du player et l'angle de vue*/
 void	init_player(t_game *game)
 {
 	game->player.pos_x = game->nb_cols -1 - game->player.x + 0.5;

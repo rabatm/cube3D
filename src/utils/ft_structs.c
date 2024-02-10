@@ -5,7 +5,6 @@ Fichier qui contient les fonctions d'initiationsation et de supresion
 
 void	ft_init_game(t_game *game)
 {
-	game->flag = 0;
 	game->color_texture.color_ceiling = -1;
 	game->color_texture.color_floor = -1;
 	game->color_texture.texture_north = NULL;

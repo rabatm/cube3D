@@ -4,7 +4,8 @@
 void	check_file_extension(char *str, char *ext)
 {
 	if (ft_strncmp(&str[ft_strlen(str) - 4], ext, 4))
-		ft_error("Invalid file extension.");
+		ft_error("Invalid configuration file extension. You must have a \
+			configuration file with .cub extension");
 }
 
 static char *ft_open_x_2(char *str, int fd)
@@ -54,7 +55,7 @@ void read_file(t_game *game, char *filename)
 	if (str[0] == 0)
 	{
 		free(str);
-		ft_error("File is empty !");
+		ft_error("Configuration file is empty !");
 		exit(0);
 	}
 	game->config = ft_split(str, '\n');

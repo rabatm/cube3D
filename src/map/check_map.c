@@ -17,7 +17,8 @@ static int	check_chars_in_map(t_game *game)
 				&& game->tab[i][j] != '1' && game->tab[i][j] != 'S' \
 				&& game->tab[i][j] != 'N' && game->tab[i][j] != 'W' \
 				&& game->tab[i][j] != 'E')
-				free_errors2(game, "Map contains invalid characters.");
+				free_errors2(game, "Map contains invalid characters. \
+					Valid characters are 1, 0, spaces, N, S, W, or E");
 			j++;
 		}
 	}
@@ -66,5 +67,4 @@ void	check_map(t_game *game)
 	check_walls(game);
 	/*fonction qui transforme la map de chars en map d int*/
 	dup_matrix_into_int_map(game);
-	// exit(EXIT_SUCCESS);
 }

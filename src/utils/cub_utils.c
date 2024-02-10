@@ -27,7 +27,6 @@ void	get_max_line_len(t_game *game)
 	}
 	game->max_line_len = max;
 	game->nb_cols = game->max_line_len;
-	// ft_printf("Max line = %d\n", game->max_line_len);
 }
 
 /*Fonction qui récupère la valeur du nombre de lignes*/
@@ -40,8 +39,8 @@ void	get_nb_lines(t_game *game)
 		;
 	game->nb_lines = i;
 	game->nb_rows = game->nb_lines;
-	// ft_printf("Nb lines = %d\n", game->nb_lines);
 }
+
 /*Fonction qui free proprement les éléments alloués 
 // lorsque l on ferme la fenetre avec escape ou avec la croix*/
 int	close_everything(t_game *game)
@@ -56,9 +55,9 @@ int	close_everything(t_game *game)
 
 /*Fonction qui affiche les élements de la structure
 Sert principalement pour débugger*/
-void	display_struct_values(t_game *game)
-{
-	int	i;
+// void	display_struct_values(t_game *game)
+// {
+// 	int	i;
 
 	// i = -1;
 	// ft_printf("Nb cols = %d\n", game->max_line_len);
@@ -96,15 +95,15 @@ void	display_struct_values(t_game *game)
 	// ft_printf("\n   Map after became rectangular:	\n");
 	// while (game->matrix[++i])
 	// 	ft_printf("%s\n", game->matrix[i]);
-	i = -1;
-	int j;
-	ft_printf("\n  ------------------------- Map after became int:--------------	\n");
-	while (++i < game->nb_cols)
-	{
-		j = -1;
-		while (++j < game->nb_rows)
-			ft_printf("%d", game->int_map[i][j]);
-		ft_printf("\n");
-	}
-	ft_printf("\n");
-}
+	// i = -1;
+	// int j;
+	// ft_printf("\n  ------------------------- Map after became int:--------------	\n");
+	// while (++i < game->nb_cols)
+	// {
+	// 	j = -1;
+	// 	while (++j < game->nb_rows)
+	// 		ft_printf("%d", game->int_map[i][j]);
+	// 	ft_printf("\n");
+	// }
+	// ft_printf("\n");
+// }

@@ -39,7 +39,7 @@ void	get_map_rectangular(t_game *game)
 	int	j;
 
 	if (game->nb_lines < 3 || game->max_line_len < 3)
-		free_errors2(game, "Map is too small.");
+		free_errors2(game, "Map is too small. It must have at least 3 lines or 3 cols");
 	game->matrix = malloc(sizeof(char *) * (game->nb_lines + 1));
 	game->matrix[game->nb_lines] = NULL;
 	i = -1;

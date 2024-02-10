@@ -1,5 +1,15 @@
 #include "../../includes/cub3d.h"
 
+void	texture_init(t_game *game)
+{
+	game->texture_x = (int)(game->wall_x * (double)TEXTURE_WIDTH);
+	if (game->which_side == 0 && game->ray_dir_x > 0)
+		game->texture_x = TEXTURE_WIDTH - game->texture_x - 1;
+	if (game->which_side == 1 && game->ray_dir_y < 0)
+		game->texture_x = TEXTURE_WIDTH - game->texture_x - 1;
+}
+/*Fonction qui transforme les xpm en image et récupère l addresse pour l'afficher puis detruit l image 
+// comme ca on a pas a gerer d eventuels leaks lies a la mlx*/
 void	load_image(t_game *game, int *texture, char *file, t_img *img)
 {
 	int	x;
@@ -20,7 +30,7 @@ void	load_image(t_game *game, int *texture, char *file, t_img *img)
 	}
 	mlx_destroy_image(game->mlx_ptr, img->img);
 }
-
+/*Fonction qui récupère les textures correspondantes*/
 void	load_textures(t_game *game)
 {
 	t_img	img;
@@ -30,7 +40,7 @@ void	load_textures(t_game *game)
 	load_image(game, game->textures[2], game->color_texture.texture_west, &img);
 	load_image(game, game->textures[3], game->color_texture.texture_east, &img);
 }
-
+/*Fonction qui initialise les textures à 0*/
 void	init_textures(t_game *game)
 {
 	int	i;

@@ -15,14 +15,14 @@ static int	check_outline(t_game *game)
 			if (i == 0 || i == game->nb_lines - 1)
 			{
 				if (game->matrix[i][j] == '0')
-					free_errors2(game, "Map is not surrounded by walls.");
+					free_errors2(game, "Map is not surrounded by walls on first or last line.");
 			}
 			else
 			{
 				if (j == 0 || j == game->max_line_len - 1)
 				{
 					if (game->matrix[i][j] == '0')
-						free_errors2(game, "Map is not surrounded by walls.");
+						free_errors2(game, "Map is not surrounded by walls on first or last col.");
 				}
 			}
 		}

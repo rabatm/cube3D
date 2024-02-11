@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 01:32:10 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 02:05:12 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,6 @@ FT pour la structure
 */
 void	ft_init_game(t_game *game);
 void	init_player_position(t_game *game);
+/* fonction home page*/
+int homePageMain();
 #endif

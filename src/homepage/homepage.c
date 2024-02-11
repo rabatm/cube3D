@@ -8,8 +8,8 @@ int handle_key_press(int keycode, void *param)
 	printf("Touche pressée : %d\n", keycode);
 	if (keycode == XK_Escape)
 		close_everything(game);
-	//else 
-		//init_window(game);
+	else 
+		init_window(game);
 	return 0;
 }
 

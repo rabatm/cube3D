@@ -6,7 +6,7 @@
 /*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 17:06:43 by martin           ###   ########.fr       */
+/*   Updated: 2024/02/11 17:14:42 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,4 @@ FT pour la structure
 */
 void	ft_init_game(t_game *game);
 void	init_player_position(t_game *game);
-/* fonction home page*/
-int homePageMain();
 #endif

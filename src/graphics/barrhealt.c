@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   barrhealt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 01:20:18 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 01:58:05 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 17:03:11 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,20 @@ void	init_head(t_game *game)
 void	my_heal_bar(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->hbar.img,
-		0, WINDOW_HEIGHT - 103);
+		0, WINDOW_HEIGHT - 83);
 }
 
 void	r_head(t_game *game)
 {
+	game->last_head += 1;
+	if (game->last_head == 60)
+	{
+		game->current_head++;
+		game->last_head = 0;
+	}
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->head[game->current_head].img, (WINDOW_WIDTH - 120) / 2,
-		WINDOW_HEIGHT - 103);
+		WINDOW_HEIGHT - 76);
 	if (game->current_head == 13)
 		game->current_head = 0;
-	else
-		game->current_head++;
 }

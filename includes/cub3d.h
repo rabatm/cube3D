@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 02:05:12 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 17:06:43 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ void	q_key(t_game *game);
 void	d_key(t_game *game);
 void	rotate_left_key(t_game *game);
 void	rotate_right_key(t_game *game);
+//fonction souris
+int		handle_mouse_click(int button, int x, int y, t_game *game);
+int		handle_mouse_move(int x, int y, t_game *game);
+int		handle_mouse_release(int button, int x, int y, t_game *game);
 /*Fonctions de gestion de la mémoire*/
 // void    malloc_n_duplicate(t_game *game);
 void	free_ct_conf_error(t_game *game, char *msg);

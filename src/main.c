@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:00:59 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/11 02:11:33 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 17:02:46 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int	main(int argc, char **argv)
 	else
 		ft_error("You must have 2 arguments. Run ./cub3d with a conf file.");
 	init_player(&game);
-	homePageMain();
-	//init_window(&game);
+	init_window(&game);
 	free_all(&game);
 	return (0);
 }

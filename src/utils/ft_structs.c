@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_structs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:45:18 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/11 01:53:49 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 16:36:27 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	ft_init_game(t_game *game)
 	game->left_straf = 0;
 	game->right_straf = 0;
 	game->current_head = 0;
+	game->last_head = 0;
+	game->prev_m_x = 0;
+	game->left_click = 0;
 	game->rot = ROTATION_SPEED;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:33:17 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 01:42:15 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 16:36:16 by martin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,9 @@ typedef struct s_game
 	int		endian;
 	t_img	hbar;
 	t_img	head[14];
+	int		last_head;
+	int		left_click;
+	int		prev_m_x;
 	int		current_head;
 	t_ctext	color_texture;
 	t_point	player;

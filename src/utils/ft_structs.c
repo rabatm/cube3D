@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_structs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:45:18 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/10 21:22:18 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:53:49 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ Fichier qui contient les fonctions d'initiationsation et de supresion
 */
 #include "../../includes/cub3d.h"
 
-void	ft_init_game(t_game *game)
+void	ft_init_1(t_game *game)
 {
 	game->color_texture.color_ceiling = -1;
 	game->color_texture.color_floor = -1;
@@ -32,6 +32,11 @@ void	ft_init_game(t_game *game)
 	game->resolution_y = 0;
 	game->player.dir_x = 0;
 	game->player.dir_y = 0;
+}
+
+void	ft_init_game(t_game *game)
+{
+	ft_init_1(game);
 	game->plane_x = 0;
 	game->plane_y = 0;
 	game->speed = SPEED;
@@ -41,6 +46,7 @@ void	ft_init_game(t_game *game)
 	game->rotate_y = 0;
 	game->left_straf = 0;
 	game->right_straf = 0;
+	game->current_head = 0;
 	game->rot = ROTATION_SPEED;
 }
 

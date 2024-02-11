@@ -1,43 +1,57 @@
-// #include "../../includes/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   barrhealt.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/11 01:20:18 by mrabat            #+#    #+#             */
+/*   Updated: 2024/02/11 01:58:05 by mrabat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// void	show_pic(t_game *game, char *pic, int x, int y)
-// {
-// 	int img_width, img_height;
-// 	t_img image;
+#include "../../includes/cub3d.h"
 
-// 	image.addr = mlx_xpm_file_to_image(game->mlx_ptr, pic, &img_width, &img_height);
-// 	if (!image.addr)
-// 		write(2, "File could not be read\n", 23);
-// 	else
-// 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, image.addr, x, y);
-// }
-// char* img_alea() {
-//     // Initialisation du générateur pseudo-aléatoire avec l'heure actuelle
-//     srand(time(NULL));
+void	init_hb(t_game *game)
+{
+	game->hbar.img = mlx_xpm_file_to_image(game->mlx_ptr,
+			"././assets/hbar.xpm", &game->hbar.img_width,
+			&game->hbar.img_height);
+}
 
-//     // Génère un nombre aléatoire entre 1 et 10
-//     int numero_fichier = rand() % 10 + 1;
+void	init_head(t_game *game)
+{
+	int		i;
+	char	path[30];
+	char	*num;
 
-//     // Alloue de la mémoire pour le nom de fichier
-//     char* nom_fichier = (char*)malloc(50 * sizeof(char)); // Assurez-vous d'allouer suffisamment d'espace
+	i = 0;
+	while (i < 14)
+	{
+		ft_strlcpy(path, "././assets/w", 13);
+		num = ft_itoa(i + 1);
+		ft_strlcat(path, num, 30);
+		ft_strlcat(path, ".xpm", 30);
+		game->head[i].img = mlx_xpm_file_to_image(game->mlx_ptr, path,
+				&game->head[i].img_width, &game->head[i].img_height);
+		i++;
+		free(num);
+	}
+}
 
-//     // Construit le nom de fichier
-//     snprintf(nom_fichier, 50, "././assets/w%d.xpm", numero_fichier);
+void	my_heal_bar(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->hbar.img,
+		0, WINDOW_HEIGHT - 103);
+}
 
-//     return nom_fichier;
-// }
-
-// void	r_head(t_game *game)
-// {
-// 	char *aleImg;
-// 	aleImg = img_alea();
-// 	show_pic(game, aleImg , 400, 400);
-// 	free(aleImg);
-// }
-
-
-// void	my_heal_bar(t_game *game)
-// {
-// 	//show barr
-// 	show_pic(game, "././assets/barre.xpm", 0, 401);
-// }
+void	r_head(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		game->head[game->current_head].img, (WINDOW_WIDTH - 120) / 2,
+		WINDOW_HEIGHT - 103);
+	if (game->current_head == 13)
+		game->current_head = 0;
+	else
+		game->current_head++;
+}

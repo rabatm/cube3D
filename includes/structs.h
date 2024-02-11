@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:33:17 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/10 23:35:11 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 01:42:15 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,17 @@ typedef struct s_ctext
 	int			color_floor;
 	int			color_ceiling;
 }		t_ctext;
+
+typedef struct s_img
+{
+	void	*img;
+	int		*data;
+	int		size_line;
+	int		bpp;
+	int		endian;
+	int		img_width;
+	int		img_height;
+}			t_img;
 
 typedef struct s_game
 {
@@ -99,18 +110,11 @@ typedef struct s_game
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
+	t_img	hbar;
+	t_img	head[14];
+	int		current_head;
 	t_ctext	color_texture;
 	t_point	player;
 }		t_game;
 
-typedef struct s_img
-{
-	void	*img;
-	int		*data;
-	int		size_line;
-	int		bpp;
-	int		endian;
-	int		img_width;
-	int		img_height;
-}			t_img;
 #endif

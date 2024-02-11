@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/10 23:36:30 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/11 01:32:10 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	texture_init(t_game *game);
 /* ft for barre*/
 void	my_heal_bar(t_game *game);
 void	r_head(t_game *game);
+void	init_head(t_game *game);
+void	init_hb(t_game *game);
 /*Fonctions de gestion du raycasting*/
 void	dup_matrix_into_int_map(t_game *game);
 void	init_player(t_game *game);

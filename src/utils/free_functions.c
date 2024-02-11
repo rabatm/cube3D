@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:48:42 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/10 20:48:44 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:16:10 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ void	free_all(t_game *game)
 	while (game->tab[++i])
 		free(game->tab[i]);
 	free(game->tab);
-	i = -1;
-	while (game->config[++i])
-		free(game->config[i]);
-	free(game->config);
 	i = -1;
 	while (game->matrix[++i])
 		free(game->matrix[i]);

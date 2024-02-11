@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:45:51 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/10 20:46:47 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:50:55 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,19 @@ void	get_nb_lines(t_game *game)
 // lorsque l on ferme la fenetre avec escape ou avec la croix*/
 int	close_everything(t_game *game)
 {
-	free_all(game);
+	int	i;
+
+	i = 0;
+	while (i < 14)
+	{
+		mlx_destroy_image(game->mlx_ptr, game->head[i].img);
+		i++;
+	}
 	mlx_destroy_image(game->mlx_ptr, game->buffer);
+	mlx_destroy_image(game->mlx_ptr, game->hbar.img);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
+	free_all(game);
 	free(game->mlx_ptr);
 	exit(0);
 }

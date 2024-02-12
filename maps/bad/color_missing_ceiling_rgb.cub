@@ -1,10 +1,10 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west23.xpm
-EA textures/test/east.xpm
+NO textures/no.xpm
+SO textures/so.xpm
+WE textures/we.xpm
+EA textures/ea.xpm
 
-C 20,20,30
-F 200,200,20
+C
+F 200,200,200
 
 11111
 10001

@@ -6,9 +6,14 @@ EA textures/wall_3.xpm
 
 SO textures/wall_4.xpm
 
+<<<<<<< HEAD
 F 69,222,199
 
 C 235,198,52
+=======
+F     153,     255,    153
+C   153,     255,     255
+>>>>>>> 1a73742b8ad822073bddbae81220677e1a9f98c8
 
 
 

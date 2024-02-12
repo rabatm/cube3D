@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:53:16 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 14:43:41 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:41:54 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,25 @@ int	check_texture_color(char *line, t_ctext *color_texture)
 // si elle ne l'est pas on la remplie en supprimant les espaces
 int	parse_texture(char *line, t_ctext *color_texture)
 {
-	char	*tmp;
-	char	*str_for_trim;
-
-	str_for_trim = " ";
+	fprintf(stderr, "parse_texture %s\n", line);
 	if (check_texture_color(line, color_texture) == 0)
+	{
+		free(line);
 		return (0);
-	tmp = ft_strtrim(line + 3, str_for_trim);
-	if (check_file_extension_and_existence(tmp) == 0)
+	}
+	if (check_file_extension_and_existence(line + 2) == 0)
+	{
+		free(line);
 		return (0);
+	}
 	if (line[0] == 'N' && line[1] == 'O')
-		color_texture->texture_north = ft_strdup(tmp);
+		color_texture->texture_north = ft_strdup(line + 2);
 	else if (line[0] == 'S' && line[1] == 'O')
-		color_texture->texture_south = ft_strdup(tmp);
+		color_texture->texture_south = ft_strdup(line + 2);
 	else if (line[0] == 'W' && line[1] == 'E')
-		color_texture->texture_west = ft_strdup(tmp);
+		color_texture->texture_west = ft_strdup(line + 2);
 	else if (line[0] == 'E' && line[1] == 'A')
-		color_texture->texture_east = ft_strdup(tmp);
-	free(tmp);
+		color_texture->texture_east = ft_strdup(line + 2);
+	free(line);
 	return (1);
 }

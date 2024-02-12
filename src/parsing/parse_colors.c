@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:51:15 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 14:38:07 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:51:28 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,20 @@ int	parse_color(char *line, t_ctext *color_texture)
 	t_color	color;
 
 	if (!check_texture_color(line, color_texture))
+	{
+		free(line);
 		return (0);
-	color = parse_rgb_values(line + 2);
+	}
+	color = parse_rgb_values(line + 1);
 	if (color.r == -1 || color.g == -1 || color.b == -1)
+	{
+		free(line);
 		return (0);
+	}
 	if (line[0] == 'F')
 		color_texture->color_floor = mlx_rgb_to_pixel(color);
 	else
 		color_texture->color_ceiling = mlx_rgb_to_pixel(color);
+	free(line);
 	return (1);
 }

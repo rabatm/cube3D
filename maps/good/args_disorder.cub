@@ -1,14 +1,14 @@
-   WE                            textures/wolfenstein/eagle.xpm
-NO      textures/wolfenstein/grey_stone.xpm
+   WE                            textures/wall_1.xpm
+NO      textures/wall_2.xpm
 
-EA textures/wolfenstein/mossy.xpm
+EA textures/wall_3.xpm
 
 
-SO textures/wolfenstein/red_brick.xpm
+SO textures/wall_4.xpm
 
-F   69, 222, 199
+F 69,222,199
 
-C 235, 198, 52
+C 235,198,52
 
 
 

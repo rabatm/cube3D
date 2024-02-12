@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/12 14:37:19 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:37:28 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	check_map(t_game *game);
 int		check_walls(t_game *game);
 /*Fonctions utils*/
 void	check_file_extension(char *str, char *ext);
+char*	remove_spaces(char* str);
 /*Fonctions pour la structure*/
 void	ft_init_game(t_game *game);
 void	init_player_position(t_game *game);

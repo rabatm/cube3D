@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:45:51 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/11 01:50:55 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/12 18:52:17 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,28 @@ void	ft_error(char *str)
 {
 	ft_printf("\033[31mError : %s\n\033[0m", str);
 	exit(EXIT_FAILURE);
+}
+
+//fonction qui supprimer les espace d'un string
+char	*remove_spaces(char *str)
+{
+	int		count;
+	int		i;
+	char	*new_str;
+
+	count = 0;
+	i = 0;
+	new_str = malloc(strlen(str) + 1);
+	if (new_str == NULL)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			new_str[count++] = str[i];
+		i++;
+	}
+	new_str[count] = '\0';
+	return (new_str);
 }
 
 /*Fonction qui récupère la valeur de la ligne la plus longue*/

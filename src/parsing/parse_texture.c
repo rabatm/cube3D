@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:53:16 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 18:41:54 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/12 18:57:38 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	check_texture_color(char *line, t_ctext *color_texture)
 // si elle ne l'est pas on la remplie en supprimant les espaces
 int	parse_texture(char *line, t_ctext *color_texture)
 {
-	fprintf(stderr, "parse_texture %s\n", line);
 	if (check_texture_color(line, color_texture) == 0)
 	{
 		free(line);

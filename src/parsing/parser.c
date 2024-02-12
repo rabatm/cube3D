@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:53:37 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 18:40:46 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/12 18:58:55 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	parse_line(char *line, t_ctext *color_texture)
 	if (!line)
 		return (-2);
 	tmp = remove_spaces(line);
-	fprintf(stderr, "parse |%s|\n", tmp);
 	if (tmp[0] == 'N' && tmp[1] == 'O')
 		return (parse_texture(tmp, color_texture));
 	else if (tmp[0] == 'S' && tmp[1] == 'O')
@@ -62,7 +61,6 @@ void	parse_config(t_game *game)
 		if (ret == -2)
 			break ;
 	}
-	fprintf(stderr, "parse_config %s\n", game->color_texture.texture_north);
 	if (game->color_texture.texture_north == NULL
 		|| game->color_texture.texture_south == NULL
 		|| game->color_texture.texture_east == NULL

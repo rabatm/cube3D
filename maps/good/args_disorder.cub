@@ -6,9 +6,8 @@ EA textures/wolfenstein/mossy.xpm
 
 SO textures/wolfenstein/red_brick.xpm
 
-F   69, 222, 199
-
-C 235, 198, 52
+F     153,     255,    153
+C   153,     255,     255
 
 
 

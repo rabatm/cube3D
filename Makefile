@@ -58,12 +58,12 @@ clean:
 	@$(MAKE) clean -sC $(LIBFTDIR)
 	@$(MAKE) clean -sC $(LIBMINIDIR_ORIGIN)
 	@rm -rf $(OBJDIR)
-	@echo "$(BLUE)cleaned!$(DEF_COLOR)"
+	@echo "$(BLUE)Objects cleaned!$(DEF_COLOR)"
 
 # Règle de nettoyage complet
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(RED)cleaned !$(DEF_COLOR)"
+	@echo "$(RED)Everything is cleaned !$(DEF_COLOR)"
 
 # Règle de recompilation complète
 re: fclean all

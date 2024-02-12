@@ -6,9 +6,8 @@ WE ../files/west_texture
 
 EA ../files/east_texture
 
-F 220,100,0
-
-C 225,30,0
+F 153,255,153
+C 153,255,255
 
 111
 1N1

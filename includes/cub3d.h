@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:35:30 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 17:14:42 by martin           ###   ########.fr       */
+/*   Updated: 2024/02/12 14:37:19 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,11 @@ void	q_key(t_game *game);
 void	d_key(t_game *game);
 void	rotate_left_key(t_game *game);
 void	rotate_right_key(t_game *game);
-//fonction souris
+/*Fonctions souris*/
 int		handle_mouse_click(int button, int x, int y, t_game *game);
 int		handle_mouse_move(int x, int y, t_game *game);
 int		handle_mouse_release(int button, int x, int y, t_game *game);
 /*Fonctions de gestion de la mémoire*/
-// void    malloc_n_duplicate(t_game *game);
 void	free_ct_conf_error(t_game *game, char *msg);
 void	free_errors2(t_game *game, char *str);
 void	free_errors_mx(t_game *game, char *str);
@@ -93,14 +92,9 @@ void	free_ct_conf(t_game *game);
 void	ft_error(char *str);
 void	check_map(t_game *game);
 int		check_walls(t_game *game);
-/*
-FT UTILS
-*/
-void	ft_free_char_array(char **my_array);
+/*Fonctions utils*/
 void	check_file_extension(char *str, char *ext);
-/*
-FT pour la structure
-*/
+/*Fonctions pour la structure*/
 void	ft_init_game(t_game *game);
 void	init_player_position(t_game *game);
 #endif

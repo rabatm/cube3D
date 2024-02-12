@@ -6,7 +6,7 @@
 /*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:51:43 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/11 10:34:07 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:57:25 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	read_file(t_game *game, char *filename)
 		i++;
 	if (i <= 6)
 	{
-		ft_free_char_array(game->config);
-		ft_error("Invalid configuration file.\n");
+		free_array(game->config);
+		ft_error("Invalid configuration file.");
 		exit(0);
 	}
 	game->max_line_len = i;

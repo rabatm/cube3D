@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:53:37 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/11 01:04:08 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/12 14:19:59 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	parse_config(t_game *game)
 	{
 		ret = parse_line(game->config[i++], &(game->color_texture));
 		if (ret == 0)
-			free_ct_conf_error(game, "Invalid line in configuration file.\n");
+			free_ct_conf_error(game, "Invalid color or texture in conf file.");
 		if (ret == -2)
 			break ;
 	}

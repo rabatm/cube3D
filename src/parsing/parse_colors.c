@@ -6,7 +6,7 @@
 /*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:51:15 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/10 20:51:17 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:38:07 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_color	parse_rgb_values(char *line)
 		color.g = set_color_and_check(rgb_values[1]);
 		color.b = set_color_and_check(rgb_values[2]);
 	}
-	ft_free_char_array(rgb_values);
+	free_array(rgb_values);
 	return (color);
 }
 

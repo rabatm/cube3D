@@ -1,10 +1,10 @@
-NO ../files/north_texture
+NO textures/so.xpm
 
-SO ../files/south_texture
+SO textures/no.xpm
 
-WE ../files/west_texture
+WE textures/ea.xpm
 
-EA ../files/east_texture
+EA textures/we.xpm
 
 F 153,255,153
 C 153,255,255

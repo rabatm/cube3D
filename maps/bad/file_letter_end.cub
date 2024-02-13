@@ -3,8 +3,8 @@ SO textures/so.xpm
 WE textures/we.xpm
 EA textures/ea.xpm
 
-F 164,169,20
-C 153,204,255
+F 164,           169,20
+C 153                  ,204             ,255
 
 11111
 10001

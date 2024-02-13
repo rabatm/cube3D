@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martin <martin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:33:17 by mrabat            #+#    #+#             */
-/*   Updated: 2024/02/11 16:36:16 by martin           ###   ########.fr       */
+/*   Updated: 2024/02/13 13:18:40 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
-	Contient les structures de données Cub3D
-*/
 #ifndef STRUCTS_H
 # define STRUCTS_H
-/**
-	Structure pour stocker les couleurs RGB
-*/
+
 typedef struct s_color
 {
 	int		r;
@@ -93,10 +88,10 @@ typedef struct s_game
 	int		hit_wall;
 	double	side_dist_x;
 	double	side_dist_y;
-	int		step_x; /*nombre de pas en x*/
-	int		step_y; /*nombre de pas en y*/
-	int		which_side; /*de quel cote on se trouve*/
-	double	perpendicular_wall_dist; /*evite l effet oeil de boeuf*/
+	int		step_x;
+	int		step_y;
+	int		which_side;
+	double	perpendicular_wall_dist;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
@@ -107,7 +102,7 @@ typedef struct s_game
 	int		texture_y;
 	void	*buffer;
 	char	*addr;
-	int		bpp; /* bits per pixel */
+	int		bpp;
 	int		line_len;
 	int		endian;
 	t_img	hbar;

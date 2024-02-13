@@ -6,17 +6,11 @@
 /*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:55:16 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/13 12:22:28 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:17:56 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-// static int	check_chars(t_game *game)
-// {
-// 	if (game->matrix[i][j] == '0' || game->matrix[i][j] == ' ' || game->matrix[i][j] == 'N' ||)
-// 	return (0);
-// }
 
 /*Fonction qui vérifie qu'il y a que des 1 sur les contours de la map*/
 static int	check_outline(t_game *game)

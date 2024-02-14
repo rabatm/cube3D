@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:45:51 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 18:52:17 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/02/14 10:53:58 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // et termine le programme correctement*/
 void	ft_error(char *str)
 {
-	ft_printf("\033[31mError : %s\n\033[0m", str);
+	ft_printf("\033[31mError :\n %s\n\033[0m", str);
 	exit(EXIT_FAILURE);
 }
 

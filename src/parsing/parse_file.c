@@ -6,7 +6,7 @@
 /*   By: orauline <orauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:51:43 by orauline          #+#    #+#             */
-/*   Updated: 2024/02/12 16:57:25 by orauline         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:54:50 by orauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,21 @@ static char	*ft_readfile(char *filename)
 	return (ft_open_x_2(str, fd));
 }
 
+static void	check_if_file_exist(char *str)
+{
+	if (str == NULL)
+	{
+		ft_error("File doesn't exist. Choose another one.");
+		exit(EXIT_FAILURE);
+	}
+	if (str[0] == 0)
+	{
+		free(str);
+		ft_error("Configuration file is empty !");
+		exit(0);
+	}
+}
+
 void	read_file(t_game *game, char *filename)
 {
 	int		i;
@@ -63,12 +78,7 @@ void	read_file(t_game *game, char *filename)
 	i = 0;
 	check_file_extension(filename, ".cub");
 	str = ft_readfile(filename);
-	if (str[0] == 0)
-	{
-		free(str);
-		ft_error("Configuration file is empty !");
-		exit(0);
-	}
+	check_if_file_exist(str);
 	game->config = ft_split(str, '\n');
 	free(str);
 	if (!game->config)
